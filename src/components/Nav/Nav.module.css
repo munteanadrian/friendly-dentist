@@ -1,0 +1,179 @@
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--color-dark);
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.3s ease;
+}
+
+.scrolled {
+  border-bottom-color: rgba(255, 255, 255, 0.1);
+}
+
+.inner {
+  position: relative;
+  z-index: 2;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 var(--section-padding-h);
+  height: 64px;
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+}
+
+/* Logo */
+.logo {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  margin-right: auto;
+}
+
+.badge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1.5px solid var(--color-white);
+  font-family: var(--font-display);
+  font-size: 16px;
+  color: var(--color-white);
+  letter-spacing: 0.05em;
+  flex-shrink: 0;
+}
+
+/* Desktop nav links — hidden mobile-first */
+.links {
+  display: none;
+  gap: var(--space-md);
+  align-items: center;
+}
+
+.link {
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--color-text-on-dark);
+  white-space: nowrap;
+  transition: color 0.2s ease;
+}
+
+.link:hover {
+  color: var(--color-white);
+}
+
+/* CTA pill */
+.cta {
+  display: none;
+  padding: 10px 24px;
+  background: var(--color-btn);
+  color: var(--color-btn-text);
+  border-radius: 32px;
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 500;
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: opacity 0.2s ease;
+}
+
+.cta:hover {
+  opacity: 0.85;
+}
+
+/* Hamburger button */
+.hamburger {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  padding: 6px 4px;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.bar {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: var(--color-white);
+  border-radius: 2px;
+  transform-origin: center;
+  transition: transform 0.25s ease, opacity 0.25s ease;
+}
+
+.menuOpen .bar:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.menuOpen .bar:nth-child(2) {
+  opacity: 0;
+}
+
+.menuOpen .bar:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* Mobile full-screen overlay */
+.mobileMenu {
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  background: var(--color-dark);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-lg);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease;
+}
+
+.mobileMenuOpen {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.mobileMenu ul {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-md);
+}
+
+.mobileLink {
+  font-family: var(--font-display);
+  font-size: 36px;
+  font-weight: 400;
+  color: var(--color-text-on-dark);
+  transition: color 0.2s ease;
+}
+
+.mobileLink:hover {
+  color: var(--color-white);
+}
+
+.mobileCta {
+  display: flex;
+}
+
+/* Desktop overrides */
+@media (min-width: 768px) {
+  .links {
+    display: flex;
+  }
+
+  .cta {
+    display: block;
+  }
+
+  .hamburger {
+    display: none;
+  }
+}

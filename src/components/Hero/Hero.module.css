@@ -1,0 +1,93 @@
+.hero {
+  position: relative;
+  height: 100vh;
+  min-height: 600px;
+  background-image: url('https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=1600');
+  background-size: cover;
+  background-position: center;
+  background-color: var(--color-dark);
+  display: flex;
+  align-items: center;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+}
+
+.content {
+  position: relative;
+  z-index: 1;
+  max-width: var(--max-width);
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 var(--section-padding-h);
+}
+
+.eyebrow {
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-style: italic;
+  font-weight: 400;
+  color: var(--color-white);
+  margin-bottom: var(--space-sm);
+  opacity: 0.9;
+}
+
+.heading {
+  font-family: var(--font-display);
+  font-size: clamp(72px, 10vw, 120px);
+  font-weight: 400;
+  text-transform: uppercase;
+  color: var(--color-white);
+  line-height: 0.85;
+  letter-spacing: -0.01em;
+}
+
+.script {
+  font-family: var(--font-script);
+  font-size: clamp(90px, 12vw, 150px);
+  color: var(--color-white);
+  line-height: 1;
+  margin-top: -0.2em;
+}
+
+.cta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-sm);
+  margin-top: var(--space-lg);
+}
+
+.ctaBtn {
+  display: inline-block;
+  padding: 14px 32px;
+  background: var(--color-btn);
+  color: var(--color-btn-text);
+  border-radius: 32px;
+  font-family: var(--font-body);
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  transition: opacity 0.2s ease;
+}
+
+.ctaBtn:hover {
+  opacity: 0.85;
+}
+
+.subtext {
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+@media (min-width: 768px) {
+  .eyebrow {
+    font-size: 22px;
+  }
+}
