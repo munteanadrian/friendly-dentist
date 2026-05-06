@@ -2,8 +2,8 @@ import Nav from './components/Nav/Nav.jsx'
 import Hero from './components/Hero/Hero.jsx'
 import Servicii from './components/Servicii/Servicii.jsx'
 import PrimaVizita from './components/PrimaVizita/PrimaVizita.jsx'
-// TODO: import Echipa from './components/Echipa/Echipa.jsx'
-// TODO: import Recenzii from './components/Recenzii/Recenzii.jsx'
+import Echipa from './components/Echipa/Echipa.jsx'
+import Recenzii from './components/Recenzii/Recenzii.jsx'
 // TODO: import FAQ from './components/FAQ/FAQ.jsx'
 // TODO: import Contact from './components/Contact/Contact.jsx'
 // TODO: import Footer from './components/Footer/Footer.jsx'
@@ -16,8 +16,8 @@ function App() {
         <Hero />
         <Servicii />
         <PrimaVizita />
-        {/* TODO: <Echipa /> */}
-        {/* TODO: <Recenzii /> */}
+        <Echipa />
+        <Recenzii />
         {/* TODO: <FAQ /> */}
         {/* TODO: <Contact /> */}
         {/* TODO: <Footer /> */}
