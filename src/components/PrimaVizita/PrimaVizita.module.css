@@ -1,0 +1,114 @@
+.section {
+  background: var(--color-light-bg);
+}
+
+/* Full-width image block */
+.imageWrap {
+  position: relative;
+  height: 65vh;
+  min-height: 420px;
+  background-image: url('https://images.unsplash.com/photo-1588776814546-1ffbb2a6625c?w=1600');
+  background-size: cover;
+  background-position: center;
+  background-color: var(--color-dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.textContent {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  padding: 0 var(--section-padding-h);
+}
+
+.eyebrow {
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-style: italic;
+  font-weight: 400;
+  color: var(--color-white);
+  opacity: 0.85;
+  margin-bottom: var(--space-sm);
+}
+
+.heading {
+  font-family: var(--font-display);
+  font-size: clamp(72px, 12vw, 140px);
+  font-weight: 400;
+  text-transform: uppercase;
+  color: var(--color-white);
+  line-height: 0.85;
+  letter-spacing: -0.02em;
+}
+
+/* Steps section — light bg, cards overlap image bottom */
+.stepsWrap {
+  background: var(--color-light-bg);
+  padding-bottom: var(--space-2xl);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-sm);
+  max-width: var(--max-width);
+  margin: -60px auto 0;
+  padding: 0 var(--section-padding-h);
+}
+
+.card {
+  background: var(--color-white);
+  border-radius: 16px;
+  padding: var(--space-md) var(--space-md) var(--space-lg);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+}
+
+.number {
+  font-family: var(--font-display);
+  font-size: 40px;
+  font-weight: 400;
+  color: var(--color-btn);
+  line-height: 1;
+}
+
+.cardTitle {
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--color-dark);
+  letter-spacing: 0.06em;
+}
+
+.cardBody {
+  font-family: var(--font-body);
+  font-size: 14px;
+  line-height: 1.65;
+  color: var(--color-dark);
+  opacity: 0.75;
+  text-align: left;
+}
+
+/* Tablet: 2-col */
+@media (min-width: 768px) {
+  .grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* Desktop: 4-col */
+@media (min-width: 1280px) {
+  .grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}

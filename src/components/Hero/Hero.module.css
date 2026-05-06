@@ -2,7 +2,7 @@
   position: relative;
   height: 100vh;
   min-height: 600px;
-  background-image: url('https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=1600');
+  background-image: url('/cover fara text.jpg');
   background-size: cover;
   background-position: center;
   background-color: var(--color-dark);
@@ -23,6 +23,17 @@
   width: 100%;
   margin: 0 auto;
   padding: 0 var(--section-padding-h);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-lg);
+}
+
+/* The 3 text lines centered relative to each other */
+.textGroup {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .eyebrow {
@@ -31,8 +42,9 @@
   font-style: italic;
   font-weight: 400;
   color: var(--color-white);
-  margin-bottom: var(--space-sm);
   opacity: 0.9;
+  margin-bottom: var(--space-sm);
+  text-align: center;
 }
 
 .heading {
@@ -43,6 +55,7 @@
   color: var(--color-white);
   line-height: 0.85;
   letter-spacing: -0.01em;
+  text-align: center;
 }
 
 .script {
@@ -51,6 +64,7 @@
   color: var(--color-white);
   line-height: 1;
   margin-top: -0.2em;
+  text-align: center;
 }
 
 .cta {
@@ -58,7 +72,6 @@
   flex-direction: column;
   align-items: flex-start;
   gap: var(--space-sm);
-  margin-top: var(--space-lg);
 }
 
 .ctaBtn {

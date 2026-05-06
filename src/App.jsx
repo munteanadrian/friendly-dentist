@@ -1,7 +1,7 @@
 import Nav from './components/Nav/Nav.jsx'
 import Hero from './components/Hero/Hero.jsx'
-// TODO: import Servicii from './components/Servicii/Servicii.jsx'
-// TODO: import PrimaVizita from './components/PrimaVizita/PrimaVizita.jsx'
+import Servicii from './components/Servicii/Servicii.jsx'
+import PrimaVizita from './components/PrimaVizita/PrimaVizita.jsx'
 // TODO: import Echipa from './components/Echipa/Echipa.jsx'
 // TODO: import Recenzii from './components/Recenzii/Recenzii.jsx'
 // TODO: import FAQ from './components/FAQ/FAQ.jsx'
@@ -14,8 +14,8 @@ function App() {
       <Nav />
       <main>
         <Hero />
-        {/* TODO: <Servicii /> */}
-        {/* TODO: <PrimaVizita /> */}
+        <Servicii />
+        <PrimaVizita />
         {/* TODO: <Echipa /> */}
         {/* TODO: <Recenzii /> */}
         {/* TODO: <FAQ /> */}
