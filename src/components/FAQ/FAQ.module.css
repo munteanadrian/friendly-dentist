@@ -1,0 +1,141 @@
+.section {
+  background: var(--color-dark);
+  padding: var(--space-2xl) 0;
+}
+
+.inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 var(--section-padding-h);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xl);
+}
+
+/* Left col */
+.left {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.heading {
+  font-family: var(--font-display);
+  font-size: clamp(44px, 6vw, 72px);
+  font-weight: 400;
+  color: var(--color-text-on-dark);
+  line-height: 1.05;
+}
+
+.subtext {
+  font-family: var(--font-body);
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--color-text-on-dark-muted);
+  max-width: 320px;
+}
+
+.telLink {
+  font-family: var(--font-body);
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--color-text-on-dark);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(238, 238, 238, 0.3);
+  padding-bottom: 2px;
+  align-self: flex-start;
+  transition: border-color 0.2s ease;
+}
+
+.telLink:hover {
+  border-color: var(--color-text-on-dark);
+}
+
+/* Right col — accordion */
+.right {
+  display: flex;
+  flex-direction: column;
+}
+
+.item {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.item:first-child {
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.trigger {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  background: none;
+  border: none;
+  padding: var(--space-md) 0;
+  cursor: pointer;
+  gap: var(--space-md);
+  text-align: left;
+}
+
+.question {
+  font-family: var(--font-body);
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--color-text-on-dark);
+  line-height: 1.5;
+}
+
+.icon {
+  font-size: 22px;
+  font-weight: 300;
+  color: var(--color-text-on-dark-muted);
+  flex-shrink: 0;
+  line-height: 1;
+  transition: transform 0.3s ease;
+  user-select: none;
+}
+
+.iconOpen {
+  transform: rotate(45deg);
+  color: var(--color-text-on-dark);
+}
+
+/* Answer panel */
+.answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+
+.answerOpen {
+  max-height: 300px;
+}
+
+.answerText {
+  font-family: var(--font-body);
+  font-size: 14px;
+  line-height: 1.75;
+  color: var(--color-text-on-dark-muted);
+  padding-bottom: var(--space-md);
+}
+
+/* Desktop: 40/60 two-col */
+@media (min-width: 768px) {
+  .inner {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: var(--space-2xl);
+  }
+
+  .left {
+    width: 40%;
+    flex-shrink: 0;
+    position: sticky;
+    top: 80px;
+  }
+
+  .right {
+    flex: 1;
+  }
+}

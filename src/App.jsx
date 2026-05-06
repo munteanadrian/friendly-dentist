@@ -4,9 +4,10 @@ import Servicii from './components/Servicii/Servicii.jsx'
 import PrimaVizita from './components/PrimaVizita/PrimaVizita.jsx'
 import Echipa from './components/Echipa/Echipa.jsx'
 import Recenzii from './components/Recenzii/Recenzii.jsx'
-// TODO: import FAQ from './components/FAQ/FAQ.jsx'
-// TODO: import Contact from './components/Contact/Contact.jsx'
-// TODO: import Footer from './components/Footer/Footer.jsx'
+import FAQ from './components/FAQ/FAQ.jsx'
+import Contact from './components/Contact/Contact.jsx'
+import Footer from './components/Footer/Footer.jsx'
+import WhatsApp from './components/WhatsApp/WhatsApp.jsx'
 
 function App() {
   return (
@@ -18,10 +19,11 @@ function App() {
         <PrimaVizita />
         <Echipa />
         <Recenzii />
-        {/* TODO: <FAQ /> */}
-        {/* TODO: <Contact /> */}
-        {/* TODO: <Footer /> */}
+        <FAQ />
+        <Contact />
       </main>
+      <Footer />
+      <WhatsApp />
     </>
   )
 }

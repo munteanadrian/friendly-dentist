@@ -10,6 +10,7 @@
   --color-text-on-dark-muted: rgba(238, 238, 238, 0.7);
   --color-btn:              #8A8383;
   --color-btn-text:         #F7F6F6;
+  --color-footer:           #1A1A1A;
 
   /* Typography */
   --font-display: 'Cormorant', serif;
