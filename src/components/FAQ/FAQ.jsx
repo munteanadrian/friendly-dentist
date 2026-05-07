@@ -49,11 +49,16 @@ export default function FAQ() {
                 className={styles.trigger}
                 onClick={() => toggle(i)}
                 aria-expanded={openIndex === i}
+                aria-controls={`faq-answer-${i}`}
               >
                 <span className={styles.question}>{item.q}</span>
                 <span className={`${styles.icon} ${openIndex === i ? styles.iconOpen : ''}`}>+</span>
               </button>
-              <div className={`${styles.answer} ${openIndex === i ? styles.answerOpen : ''}`}>
+              <div
+                id={`faq-answer-${i}`}
+                className={`${styles.answer} ${openIndex === i ? styles.answerOpen : ''}`}
+                role="region"
+              >
                 <p className={styles.answerText}>{item.a}</p>
               </div>
             </div>

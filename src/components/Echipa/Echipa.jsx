@@ -155,7 +155,7 @@ export default function Echipa() {
                 onKeyDown={(e) => e.key === 'Enter' && setActiveDoctor(doc)}
               >
                 <div className={styles.photoWrap}>
-                  <img src={doc.photo} alt={doc.name} className={styles.photo} />
+                  <img src={doc.photo} alt={doc.name} className={styles.photo} loading="lazy" />
                   <div className={styles.cardOverlay} aria-hidden="true">
                     <span className={styles.viewMore}>Vezi profil →</span>
                   </div>

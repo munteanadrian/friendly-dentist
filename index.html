@@ -1,10 +1,81 @@
 <!doctype html>
-<html lang="en">
+<html lang="ro">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/png" href="/logo.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>friendly-dentist</title>
+
+    <title>Friendly Dentist — Stomatologie București | Se poate și altfel</title>
+    <meta name="description" content="Cabinet stomatologic în București. Specialiști în endodonție la microscop, protetică, ortodonție, parodontologie și stomatologie pediatrică. Programează-te: 0743 169 796." />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://friendlydentist.ro/" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://friendlydentist.ro/" />
+    <meta property="og:title" content="Friendly Dentist — Stomatologie București" />
+    <meta property="og:description" content="Specialiști dedicați, abordare blândă, prețuri transparente. Programează-te online sau la 0743 169 796." />
+    <meta property="og:image" content="https://friendlydentist.ro/cover%20fara%20text.jpg" />
+    <meta property="og:locale" content="ro_RO" />
+    <meta property="og:site_name" content="Friendly Dentist" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Friendly Dentist — Stomatologie București" />
+    <meta name="twitter:description" content="Specialiști dedicați, abordare blândă, prețuri transparente." />
+    <meta name="twitter:image" content="https://friendlydentist.ro/cover%20fara%20text.jpg" />
+
+    <meta name="theme-color" content="#3A3939" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/logo.png" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant:wght@400&family=Montserrat:wght@300;400;500;600&display=swap&subset=latin,latin-ext" />
+
+    <!-- Hero image preload (LCP) -->
+    <link rel="preload" as="image" href="/cover%20fara%20text.jpg" />
+
+    <!-- Local business schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Dentist",
+      "name": "Friendly Dentist",
+      "url": "https://friendlydentist.ro",
+      "telephone": "+40743169796",
+      "image": "https://friendlydentist.ro/cover%20fara%20text.jpg",
+      "description": "Cabinet stomatologic în București. Specialiști în endodonție la microscop, protetică dentară, ortodonție, parodontologie, igienizare și stomatologie pediatrică.",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Str. Cezar Bolliac 66",
+        "addressLocality": "București",
+        "addressCountry": "RO"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 44.422,
+        "longitude": 26.082
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+          "opens": "09:00",
+          "closes": "21:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": "Saturday",
+          "opens": "10:00",
+          "closes": "16:00"
+        }
+      ],
+      "priceRange": "$$",
+      "sameAs": []
+    }
+    </script>
   </head>
   <body>
     <div id="root"></div>
