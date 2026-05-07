@@ -27,12 +27,12 @@ export default function Footer() {
     <footer className={styles.footer}>
       <div className={styles.inner}>
         <div className={styles.cols}>
-          <div className={styles.col}>
-            <a href="#" className={styles.logo} aria-label="Friendly Dentist — acasă">
-              <span className={styles.badge}>FD</span>
-              <span className={styles.brandName}>Friendly Dentist</span>
+          
+          <div className={styles.brandCol}>
+            <a href="#" className={styles.logoLink} aria-label="Friendly Dentist — acasă">
+              <img src="/logo.png" alt="Friendly Dentist Logo" className={styles.logoImg} />
             </a>
-            <p className={styles.tagline}>Se poate și altfel.</p>
+            <p className={styles.tagline}>Se poate și <span className={styles.cursive}>altfel</span>.</p>
           </div>
 
           <div className={styles.col}>
@@ -47,11 +47,14 @@ export default function Footer() {
           </div>
 
           <div className={styles.col}>
-            <p className={styles.colHeading}>Contact</p>
+            <p className={styles.colHeading}>Program & Contact</p>
             <div className={styles.contactInfo}>
-              <a href="tel:+40743169796" className={styles.contactLine}>0743 169 796</a>
+              <a href="tel:+40743169796" className={styles.contactLinePhone}>0743 169 796</a>
               <p className={styles.contactLine}>Str. Cezar Bolliac 66, București</p>
-              <p className={styles.contactLine}>Lun–Vin 9:00–21:00 · Sâm 10:00–16:00</p>
+              <div className={styles.hours}>
+                <p className={styles.contactLine}>Luni–Vineri: 9:00–21:00</p>
+                <p className={styles.contactLine}>Sâmbătă: 10:00–16:00</p>
+              </div>
             </div>
             <div className={styles.socials}>
               <a href="#" className={styles.socialLink} aria-label="Facebook">
@@ -62,10 +65,16 @@ export default function Footer() {
               </a>
             </div>
           </div>
+
         </div>
 
         <div className={styles.bottom}>
-          <p className={styles.copyright}>© 2026 Friendly Dentist · Toate drepturile rezervate</p>
+          <p className={styles.copyright}>© {new Date().getFullYear()} Friendly Dentist. Toate drepturile rezervate.</p>
+          <div className={styles.legalLinks}>
+            <a href="#" className={styles.legalLink}>Termeni și Condiții</a>
+            <span className={styles.separator}>·</span>
+            <a href="#" className={styles.legalLink}>Politica de Confidențialitate</a>
+          </div>
         </div>
       </div>
     </footer>

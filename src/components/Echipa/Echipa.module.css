@@ -1,10 +1,15 @@
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   Echipa — team section with carousel
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
 .section {
   background: var(--color-light-bg);
-  padding: var(--space-2xl) 0;
+  padding: var(--space-3xl) 0;
+  overflow: hidden;
 }
 
 .inner {
-  max-width: var(--max-width);
+  max-width: 1200px;
   margin: 0 auto;
   padding: 0 var(--section-padding-h);
   display: flex;
@@ -12,60 +17,102 @@
   gap: var(--space-xl);
 }
 
+/* ── Header ── */
 .header {
-  text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: var(--space-sm);
+  text-align: center;
+  gap: var(--space-xs);
+
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.header.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.eyebrow {
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-style: italic;
+  font-weight: 400;
+  color: var(--color-btn);
+  margin: 0;
 }
 
 .heading {
   font-family: var(--font-display);
-  font-size: clamp(44px, 6vw, 72px);
+  font-size: clamp(40px, 6vw, 68px);
   font-weight: 400;
   color: var(--color-dark);
   line-height: 1;
-}
-
-.subtext {
-  font-family: var(--font-body);
-  font-size: 16px;
-  font-weight: 500;
-  color: var(--color-dark);
+  margin: 0;
 }
 
 .intro {
   font-family: var(--font-body);
   font-size: 15px;
-  line-height: 1.7;
+  line-height: 1.65;
   color: var(--color-dark);
-  opacity: 0.65;
-  max-width: 540px;
+  opacity: 0.6;
+  max-width: 480px;
+  margin: 0;
 }
 
-/* Grid */
-.grid {
-  display: grid;
-  grid-template-columns: 1fr;
+/* ── Carousel wrapper ── */
+.carouselWrap {
+  position: relative;
+}
+
+/* The scrollable track */
+.track {
+  position: relative;
+  display: flex;
   gap: var(--space-sm);
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-padding: 0 var(--section-padding-h);
+  -webkit-overflow-scrolling: touch;
+  /* hide scrollbar */
+  scrollbar-width: none;
+  padding-bottom: 4px;
 }
 
+.track::-webkit-scrollbar {
+  display: none;
+}
+
+/* ── Card ── */
 .card {
+  flex: 0 0 calc(75vw - var(--section-padding-h));
+  max-width: 260px;
+  scroll-snap-align: center;
   background: var(--color-white);
-  border: 1px solid rgba(58, 57, 57, 0.08);
-  border-radius: 12px;
+  border-radius: 14px;
   overflow: hidden;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  cursor: pointer;
+  border: 1px solid rgba(58, 57, 57, 0.07);
+  transition: box-shadow 0.25s ease;
 }
 
 .card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.11);
 }
 
+.card:focus-visible {
+  outline: 2px solid var(--color-dark);
+  outline-offset: 2px;
+}
+
+/* Photo */
 .photoWrap {
-  aspect-ratio: 4 / 5;
+  position: relative;
+  aspect-ratio: 3 / 4;
   overflow: hidden;
   background: var(--color-light-bg);
 }
@@ -76,20 +123,51 @@
   object-fit: cover;
   object-position: top center;
   display: block;
+  transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
+.card:hover .photo {
+  transform: scale(1.04);
+}
+
+/* Hover overlay */
+.cardOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(30,30,30,0.72) 0%, transparent 55%);
+  display: flex;
+  align-items: flex-end;
+  padding: var(--space-sm);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.card:hover .cardOverlay {
+  opacity: 1;
+}
+
+.viewMore {
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  color: var(--color-white);
+}
+
+/* Info below photo */
 .info {
   padding: var(--space-sm) var(--space-sm) var(--space-md);
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 3px;
 }
 
 .name {
   font-family: var(--font-body);
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 600;
   color: var(--color-dark);
+  margin: 0;
 }
 
 .specialty {
@@ -97,17 +175,323 @@
   font-size: 13px;
   font-weight: 400;
   color: var(--color-dark);
-  opacity: 0.55;
+  opacity: 0.6;
+  margin: 0;
 }
 
+/* ── Arrows ── */
+.arrow {
+  position: absolute;
+  top: 40%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(58, 57, 57, 0.2);
+  background: var(--color-white);
+  color: var(--color-dark);
+  font-size: 16px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease, opacity 0.2s ease;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+  z-index: 2;
+}
+
+.arrow:hover:not(:disabled) {
+  background: var(--color-dark);
+  color: var(--color-white);
+  border-color: var(--color-dark);
+  transform: translateY(-50%) scale(1.08);
+}
+
+.arrow:disabled {
+  opacity: 0.3;
+  cursor: default;
+}
+
+.arrowPrev {
+  left: -20px;
+}
+
+.arrowNext {
+  right: -20px;
+}
+
+/* ── Dots ── */
+.dots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: calc(-1 * var(--space-md));
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(58, 57, 57, 0.2);
+  cursor: pointer;
+  transition: background 0.25s ease, transform 0.25s ease, width 0.25s ease;
+  padding: 0;
+}
+
+.dotActive {
+  background: var(--color-dark);
+  width: 24px;
+  border-radius: 4px;
+}
+
+/* ── Modal backdrop ── */
+.modalBackdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  background: rgba(20, 20, 20, 0.72);
+  backdrop-filter: blur(6px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-md);
+  animation: fadeIn 0.25s ease both;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* ── Modal card ── */
+.modal {
+  position: relative;
+  background: var(--color-white);
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  max-width: 860px;
+  width: 100%;
+  max-height: 90dvh;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  box-shadow: 0 32px 80px rgba(0, 0, 0, 0.28);
+  animation: slideUp 0.35s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(24px) scale(0.98); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* Close button — absolute on all breakpoints */
+.closeBtn {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  z-index: 10;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(4px);
+  color: var(--color-dark);
+  font-size: 14px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s ease, transform 0.2s ease;
+  flex-shrink: 0;
+}
+
+.closeBtn:hover {
+  background: rgba(58, 57, 57, 0.2);
+  transform: scale(1.1);
+}
+
+/* Modal — photo */
+.modalPhoto {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background: var(--color-light-bg);
+  flex-shrink: 0;
+  min-height: 220px;
+  position: relative;
+}
+
+.modalPhoto img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 15%;
+  display: block;
+}
+
+/* Modal — info */
+.modalInfo {
+  padding: var(--space-lg) var(--space-md);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.modalSpecialty {
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-btn);
+  margin: 0;
+}
+
+.modalName {
+  font-family: var(--font-display);
+  font-size: clamp(28px, 4vw, 40px);
+  font-weight: 400;
+  color: var(--color-dark);
+  line-height: 1.1;
+  margin: 0;
+}
+
+.modalExp {
+  font-family: var(--font-body);
+  font-size: 13px;
+  color: var(--color-dark);
+  opacity: 0.5;
+  margin: 0;
+}
+
+.divider {
+  height: 1px;
+  background: rgba(58, 57, 57, 0.1);
+  border: none;
+  margin: 0;
+}
+
+.modalStudies {
+  font-family: var(--font-body);
+  font-size: 13px;
+  color: var(--color-dark);
+  opacity: 0.6;
+  margin: 0;
+  font-style: italic;
+}
+
+.modalDesc {
+  font-family: var(--font-body);
+  font-size: 14px;
+  line-height: 1.75;
+  color: var(--color-dark);
+  opacity: 0.78;
+  margin: 0;
+}
+
+/* Tags */
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tag {
+  padding: 5px 12px;
+  border-radius: 20px;
+  background: var(--color-light-bg);
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--color-dark);
+  opacity: 0.8;
+  letter-spacing: 0.03em;
+}
+
+/* Modal CTA */
+.modalCta {
+  display: inline-block;
+  align-self: flex-start;
+  margin-top: var(--space-xs);
+  padding: 12px 28px;
+  background: var(--color-dark);
+  color: var(--color-white);
+  border-radius: 32px;
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.modalCta:hover {
+  opacity: 0.85;
+  transform: translateY(-1px);
+}
+
+/* ── Desktop: wider cards, two-column modal ── */
 @media (min-width: 768px) {
-  .grid {
-    grid-template-columns: 1fr 1fr;
+  .card {
+    flex: 0 0 260px;
+  }
+
+  .arrowPrev {
+    left: -24px;
+  }
+
+  .arrowNext {
+    right: -24px;
   }
 }
 
-@media (min-width: 1280px) {
-  .grid {
-    grid-template-columns: repeat(5, 1fr);
+@media (min-width: 1024px) {
+  .track {
+    justify-content: center;
+    overflow-x: visible;
+    flex-wrap: nowrap;
+    scroll-snap-type: none;
+    padding-bottom: 0;
+    gap: var(--space-sm);
+  }
+
+  .card {
+    flex: 1 1 0;
+    max-width: 220px;
+    min-width: 0;
+    scroll-snap-align: none;
+  }
+
+  .arrow, .dots {
+    display: none;
+  }
+
+  .modal {
+    display: grid;
+    grid-template-columns: 340px 1fr;
+    flex-direction: unset;
+    max-height: 82dvh;
+    overflow: hidden;
+  }
+
+  /* Close btn repositioned for grid layout — already absolute */
+  .closeBtn {
+    top: 16px;
+    right: 16px;
+    background: rgba(58, 57, 57, 0.1);
+    backdrop-filter: none;
+  }
+
+  .modalPhoto {
+    aspect-ratio: unset;
+    min-height: unset;
+    height: 100%;
+  }
+
+  .modalInfo {
+    padding: var(--space-xl) var(--space-lg);
+    overflow-y: auto;
   }
 }

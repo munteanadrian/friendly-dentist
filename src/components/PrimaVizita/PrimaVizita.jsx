@@ -1,3 +1,4 @@
+import { useEffect, useRef } from 'react'
 import styles from './PrimaVizita.module.css'
 
 const STEPS = [
@@ -24,26 +25,62 @@ const STEPS = [
 ]
 
 export default function PrimaVizita() {
+  const leftRef = useRef(null)
+  const stepRefs = useRef([])
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add(styles.visible)
+            observer.unobserve(entry.target)
+          }
+        })
+      },
+      { threshold: 0.15 }
+    )
+
+    if (leftRef.current) observer.observe(leftRef.current)
+    stepRefs.current.forEach((el) => el && observer.observe(el))
+
+    return () => observer.disconnect()
+  }, [])
+
   return (
     <section className={styles.section} id="prima-vizita">
-      <div className={styles.imageWrap}>
-        <div className={styles.overlay} aria-hidden="true" />
-        <div className={styles.textContent}>
-          <p className={styles.eyebrow}>vrem să știi exact la ce să te aștepți</p>
-          <h2 className={styles.heading}>PRIMA VIZITĂ</h2>
-        </div>
-      </div>
+      <div className={styles.container}>
 
-      <div className={styles.stepsWrap}>
-        <div className={styles.grid}>
-          {STEPS.map(({ number, title, body }) => (
-            <article key={number} className={styles.card}>
-              <span className={styles.number}>{number}</span>
-              <h3 className={styles.cardTitle}>{title}</h3>
-              <p className={styles.cardBody}>{body}</p>
-            </article>
+        {/* Left — sticky heading column */}
+        <div className={styles.left} ref={leftRef}>
+          <p className={styles.eyebrow}>vrem să știi exact la ce să te aștepți</p>
+          <h2 className={styles.heading}>PRIMA<br />VIZITĂ</h2>
+          <p className={styles.sub}>
+            Fiecare pas e gândit ca tu să te simți în control, nu ca un pacient printre pacienți.
+          </p>
+          <a href="#contact" className={styles.cta}>Programează-te</a>
+        </div>
+
+        {/* Right — vertical timeline */}
+        <div className={styles.right}>
+          <div className={styles.line} aria-hidden="true" />
+          {STEPS.map(({ number, title, body }, i) => (
+            <div
+              key={number}
+              className={styles.step}
+              ref={(el) => (stepRefs.current[i] = el)}
+              style={{ transitionDelay: `${i * 100}ms` }}
+            >
+              <div className={styles.stepDot} aria-hidden="true" />
+              <div className={styles.stepContent}>
+                <span className={styles.stepNumber}>{number}</span>
+                <h3 className={styles.stepTitle}>{title}</h3>
+                <p className={styles.stepBody}>{body}</p>
+              </div>
+            </div>
           ))}
         </div>
+
       </div>
     </section>
   )

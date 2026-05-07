@@ -1,3 +1,4 @@
+import { useEffect, useRef } from 'react'
 import styles from './Recenzii.module.css'
 
 const REVIEWS = [
@@ -31,17 +32,42 @@ const GoogleIcon = () => (
 )
 
 export default function Recenzii() {
+  const headerRef = useRef(null)
+  const cardRefs = useRef([])
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add(styles.visible)
+            observer.unobserve(entry.target)
+          }
+        })
+      },
+      { threshold: 0.1 }
+    )
+    if (headerRef.current) observer.observe(headerRef.current)
+    cardRefs.current.forEach((el) => el && observer.observe(el))
+    return () => observer.disconnect()
+  }, [])
+
   return (
     <section className={styles.section} id="recenzii">
       <div className={styles.inner}>
-        <div className={styles.header}>
+        <div className={styles.header} ref={headerRef}>
           <p className={styles.aggregate}>Peste 4.9 ★ — 200+ recenzii Google</p>
           <h2 className={styles.heading}>Ce spun pacienții noștri?</h2>
         </div>
 
         <div className={styles.grid}>
-          {REVIEWS.map(({ name, initial, avatarColor, text }) => (
-            <article key={name} className={styles.card}>
+          {REVIEWS.map(({ name, initial, avatarColor, text }, i) => (
+            <article
+              key={name}
+              className={styles.card}
+              ref={(el) => (cardRefs.current[i] = el)}
+              style={{ transitionDelay: `${i * 80}ms` }}
+            >
               <div className={styles.stars} aria-label="5 stele">★★★★★</div>
               <p className={styles.quote}>„{text}"</p>
               <div className={styles.reviewer}>

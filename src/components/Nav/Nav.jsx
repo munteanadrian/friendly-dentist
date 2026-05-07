@@ -11,10 +11,11 @@ const NAV_LINKS = [
 
 export default function Nav() {
   const [menuOpen, setMenuOpen] = useState(false)
-  const [scrolled, setScrolled] = useState(false)
+  const [atTop, setAtTop] = useState(true)
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 20)
+    const onScroll = () => setAtTop(window.scrollY <= 4)
+    onScroll() // run once on mount
     window.addEventListener('scroll', onScroll, { passive: true })
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
@@ -27,10 +28,10 @@ export default function Nav() {
   const close = () => setMenuOpen(false)
 
   return (
-    <nav className={`${styles.nav} ${scrolled ? styles.scrolled : ''}`} aria-label="Navigație principală">
+    <nav className={`${styles.nav} ${atTop ? styles.transparent : styles.opaque}`} aria-label="Navigație principală">
       <div className={styles.inner}>
         <a href="#" className={styles.logo} aria-label="Friendly Dentist — acasă">
-          <span className={styles.badge}>FD</span>
+          <img src="/logo.png" alt="Friendly Dentist" className={styles.logoImg} />
         </a>
 
         <ul className={styles.links} role="list">

@@ -2,18 +2,41 @@
   position: relative;
   height: 100vh;
   min-height: 600px;
-  background-image: url('/cover fara text.jpg');
-  background-size: cover;
-  background-position: center;
   background-color: var(--color-dark);
   display: flex;
   align-items: center;
+  overflow: hidden;
 }
 
+/* Parallax background — separate layer for scroll transform */
+.parallaxBg {
+  position: absolute;
+  inset: 0;
+  background-image: url('/cover fara text.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 72% center;
+  will-change: transform;
+}
+
+@media (min-width: 768px) {
+  .parallaxBg {
+    inset: -12% 0;
+    background-position: 65% center;
+  }
+}
+
+/* Subtle gradient overlay for text readability */
 .overlay {
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.45);
+  background: linear-gradient(
+    135deg,
+    rgba(30, 30, 30, 0.45) 0%,
+    rgba(30, 30, 30, 0.15) 50%,
+    transparent 100%
+  );
+  pointer-events: none;
 }
 
 .content {
@@ -26,7 +49,15 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+}
+
+.heroInner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   gap: var(--space-lg);
+  transform: none;
+  width: 100%;
 }
 
 /* The 3 text lines centered relative to each other */
@@ -36,71 +67,121 @@
   align-items: center;
 }
 
+@keyframes heroFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .eyebrow {
   font-family: var(--font-display);
-  font-size: 18px;
-  font-style: italic;
+  font-size: 20px;
   font-weight: 400;
   color: var(--color-white);
-  opacity: 0.9;
-  margin-bottom: var(--space-sm);
+  opacity: 0;
+  margin-bottom: 0;
+  line-height: 0.8;
   text-align: center;
+  animation: heroFadeIn 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.2s forwards;
 }
 
 .heading {
   font-family: var(--font-display);
-  font-size: clamp(72px, 10vw, 120px);
+  font-size: clamp(52px, 10vw, 120px);
   font-weight: 400;
   text-transform: uppercase;
   color: var(--color-white);
   line-height: 0.85;
   letter-spacing: -0.01em;
   text-align: center;
+  opacity: 0;
+  animation: heroFadeIn 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.45s forwards;
 }
 
 .script {
   font-family: var(--font-script);
-  font-size: clamp(90px, 12vw, 150px);
+  font-size: clamp(70px, 12vw, 150px);
   color: var(--color-white);
-  line-height: 1;
+  line-height: 0.85;
   margin-top: -0.2em;
   text-align: center;
+  opacity: 0;
+  animation: heroFadeIn 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.65s forwards;
 }
 
 .cta {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
   gap: var(--space-sm);
+  opacity: 0;
+  animation: heroFadeIn 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.9s forwards;
 }
 
 .ctaBtn {
   display: inline-block;
-  padding: 14px 32px;
-  background: var(--color-btn);
-  color: var(--color-btn-text);
+  position: relative;
+  overflow: hidden;
+  padding: 15px 40px;
+  border: 1.5px solid rgba(255, 255, 255, 0.75);
   border-radius: 32px;
   font-family: var(--font-body);
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 500;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
-  transition: opacity 0.2s ease;
+  color: var(--color-white);
+  background: transparent;
+  cursor: pointer;
+  transition: color 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease, transform 0.2s ease;
+  box-shadow: 0 0 0 rgba(255,255,255,0);
+}
+
+/* sliding fill layer */
+.ctaBtn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.14);
+  transform: translateX(-105%);
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+  border-radius: inherit;
 }
 
 .ctaBtn:hover {
-  opacity: 0.85;
+  border-color: var(--color-white);
+  box-shadow: 0 0 24px rgba(255, 255, 255, 0.18);
+  transform: translateY(-2px);
 }
 
-.subtext {
-  font-family: var(--font-body);
-  font-size: 13px;
-  font-weight: 400;
-  color: rgba(255, 255, 255, 0.6);
+.ctaBtn:hover::before {
+  transform: translateX(0);
+}
+
+.ctaBtn:active {
+  transform: translateY(0);
 }
 
 @media (min-width: 768px) {
+  .heroInner {
+    transform: translateX(-3vw);
+    width: auto;
+  }
+
   .eyebrow {
-    font-size: 22px;
+    font-size: 26px;
+  }
+
+  .heading {
+    font-size: clamp(72px, 10vw, 120px);
+  }
+
+  .script {
+    font-size: clamp(90px, 12vw, 150px);
   }
 }

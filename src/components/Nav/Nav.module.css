@@ -1,14 +1,31 @@
-.nav {
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  background: var(--color-dark);
-  border-bottom: 1px solid transparent;
-  transition: border-color 0.3s ease;
+/* ── Entrance animation for logo ── */
+@keyframes logoFadeIn {
+  from { opacity: 0; transform: translateY(-6px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
-.scrolled {
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  z-index: 100;
+  border-bottom: 1px solid transparent;
+  transition: background 0.4s ease, border-color 0.4s ease, backdrop-filter 0.4s ease;
+}
+
+/* Transparent state — at the very top */
+.transparent {
+  background: transparent;
+  border-bottom-color: transparent;
+}
+
+/* Opaque state — any scroll position > 0 */
+.opaque {
+  background: var(--color-dark);
   border-bottom-color: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(8px);
 }
 
 .inner {
@@ -17,13 +34,13 @@
   max-width: var(--max-width);
   margin: 0 auto;
   padding: 0 var(--section-padding-h);
-  height: 64px;
+  height: 80px;
   display: flex;
   align-items: center;
   gap: var(--space-md);
 }
 
-/* Logo */
+/* ── Logo ── */
 .logo {
   display: flex;
   align-items: center;
@@ -31,61 +48,92 @@
   margin-right: auto;
 }
 
-.badge {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  border: 1.5px solid var(--color-white);
-  font-family: var(--font-display);
-  font-size: 16px;
-  color: var(--color-white);
-  letter-spacing: 0.05em;
+.logoImg {
+  height: 48px;
+  width: auto;
+  display: block;
   flex-shrink: 0;
+  object-fit: contain;
+  animation: logoFadeIn 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.3s ease;
 }
 
-/* Desktop nav links — hidden mobile-first */
+.logoImg:hover {
+  transform: scale(1.06);
+  opacity: 0.9;
+}
+
+/* ── Desktop nav links — hidden mobile-first ── */
 .links {
   display: none;
-  gap: var(--space-md);
+  gap: 32px;
   align-items: center;
 }
 
+/* Animated underline on hover */
 .link {
   font-family: var(--font-body);
-  font-size: 14px;
-  font-weight: 400;
-  color: var(--color-text-on-dark);
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  color: var(--color-white);
+  opacity: 0.85;
   white-space: nowrap;
-  transition: color 0.2s ease;
+  position: relative;
+  padding-bottom: 4px;
+  transition: opacity 0.2s ease, color 0.2s ease;
+}
+
+.link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: var(--color-white);
+  border-radius: 2px;
+  transform: translateX(-50%);
+  transition: width 0.25s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .link:hover {
   color: var(--color-white);
+  opacity: 1;
 }
 
-/* CTA pill */
+.link:hover::after {
+  width: 100%;
+}
+
+/* ── CTA pill ── */
 .cta {
   display: none;
-  padding: 10px 24px;
-  background: var(--color-btn);
-  color: var(--color-btn-text);
+  padding: 12px 28px;
   border-radius: 32px;
   font-family: var(--font-body);
   font-size: 14px;
-  font-weight: 500;
+  font-weight: 600;
+  letter-spacing: 0.03em;
   white-space: nowrap;
   flex-shrink: 0;
-  transition: opacity 0.2s ease;
+  color: var(--color-dark);
+  background: var(--color-white);
+  transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1),
+              box-shadow 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 .cta:hover {
-  opacity: 0.85;
+  transform: scale(1.06);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
 }
 
-/* Hamburger button */
+.cta:active {
+  transform: scale(1.02);
+}
+
+/* ── Hamburger ── */
 .hamburger {
   display: flex;
   flex-direction: column;
@@ -119,7 +167,7 @@
   transform: translateY(-7px) rotate(-45deg);
 }
 
-/* Mobile full-screen overlay */
+/* ── Mobile full-screen overlay ── */
 .mobileMenu {
   position: fixed;
   inset: 0;
@@ -163,7 +211,7 @@
   display: flex;
 }
 
-/* Desktop overrides */
+/* ── Desktop overrides ── */
 @media (min-width: 768px) {
   .links {
     display: flex;

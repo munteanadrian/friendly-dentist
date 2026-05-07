@@ -1,4 +1,12 @@
-@import url('https://fonts.googleapis.com/css2?family=Cormorant:wght@400&family=Moontime&family=Montserrat:wght@300;400;500;600&display=swap&subset=latin,latin-ext');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant:wght@400&family=Montserrat:wght@300;400;500;600&display=swap&subset=latin,latin-ext');
+
+@font-face {
+  font-family: 'Moontime';
+  src: url('/fonts/moon-time-regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
 
 :root {
   /* Colors */
@@ -40,10 +48,12 @@
 
 html {
   scroll-behavior: smooth;
+  background-color: var(--color-dark);
 }
 
 body {
   margin: 0;
+  background-color: var(--color-dark);
   font-family: var(--font-body);
   font-size: 16px;
   line-height: 1.6;
