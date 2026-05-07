@@ -6,7 +6,7 @@ export default function CTA() {
       <div className={styles.inner}>
         <h2 className={styles.text}>
           Nu ai găsit răspunsul căutat? <br />
-          <span className={styles.script}>Suntem aici să ajutăm.</span>
+          <span className={styles.script}>Suntem aici sa ajutam.</span>
         </h2>
         <div className={styles.indicator}>
           ↓
