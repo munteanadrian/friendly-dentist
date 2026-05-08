@@ -1,11 +1,12 @@
+import { Link } from 'react-router-dom'
 import styles from './Footer.module.css'
 
 const NAV_LINKS = [
-  { label: 'Servicii', href: '#servicii' },
-  { label: 'Prima Vizită', href: '#prima-vizita' },
-  { label: 'Echipă', href: '#echipa' },
-  { label: 'Recenzii', href: '#recenzii' },
-  { label: 'FAQ', href: '#faq' },
+  { label: 'Servicii', to: '/servicii' },
+  { label: 'Prima Vizită', to: '/prima-vizita' },
+  { label: 'Echipă', to: '/echipa' },
+  { label: 'Recenzii', to: '/recenzii' },
+  { label: 'FAQ', to: '/faq' },
 ]
 
 const FacebookIcon = () => (
@@ -29,18 +30,18 @@ export default function Footer() {
         <div className={styles.cols}>
           
           <div className={styles.brandCol}>
-            <a href="#" className={styles.logoLink} aria-label="Friendly Dentist — acasă">
+            <Link to="/" className={styles.logoLink} aria-label="Friendly Dentist — acasă">
               <img src="/logo.webp" alt="Friendly Dentist Logo" className={styles.logoImg} />
-            </a>
+            </Link>
             <p className={styles.tagline}>Se poate și <span className={styles.cursive}>altfel</span>.</p>
           </div>
 
           <div className={styles.col}>
             <p className={styles.colHeading}>Navigație</p>
             <ul className={styles.navLinks}>
-              {NAV_LINKS.map(({ label, href }) => (
-                <li key={href}>
-                  <a href={href} className={styles.navLink}>{label}</a>
+              {NAV_LINKS.map(({ label, to }) => (
+                <li key={to}>
+                  <Link to={to} className={styles.navLink}>{label}</Link>
                 </li>
               ))}
             </ul>

@@ -1,12 +1,13 @@
 import { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom'
 import styles from './Nav.module.css'
 
 const NAV_LINKS = [
-  { label: 'Servicii', href: '#servicii' },
-  { label: 'Prima Vizită', href: '#prima-vizita' },
-  { label: 'Echipă', href: '#echipa' },
-  { label: 'Recenzii', href: '#recenzii' },
-  { label: 'FAQ', href: '#faq' },
+  { label: 'Servicii', to: '/servicii' },
+  { label: 'Prima Vizită', to: '/prima-vizita' },
+  { label: 'Echipă', to: '/echipa' },
+  { label: 'Recenzii', to: '/recenzii' },
+  { label: 'FAQ', to: '/faq' },
 ]
 
 export default function Nav() {
@@ -15,7 +16,7 @@ export default function Nav() {
 
   useEffect(() => {
     const onScroll = () => setAtTop(window.scrollY <= 4)
-    onScroll() // run once on mount
+    onScroll()
     window.addEventListener('scroll', onScroll, { passive: true })
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
@@ -30,19 +31,19 @@ export default function Nav() {
   return (
     <nav className={`${styles.nav} ${atTop ? styles.transparent : styles.opaque}`} aria-label="Navigație principală">
       <div className={styles.inner}>
-        <a href="#" className={styles.logo} aria-label="Friendly Dentist — acasă">
+        <Link to="/" className={styles.logo} aria-label="Friendly Dentist — acasă">
           <img src="/logo.webp" alt="Friendly Dentist" className={styles.logoImg} />
-        </a>
+        </Link>
 
         <ul className={styles.links} role="list">
-          {NAV_LINKS.map(({ label, href }) => (
-            <li key={href}>
-              <a href={href} className={styles.link}>{label}</a>
+          {NAV_LINKS.map(({ label, to }) => (
+            <li key={to}>
+              <Link to={to} className={styles.link}>{label}</Link>
             </li>
           ))}
         </ul>
 
-        <a href="#contact" className={styles.cta}>Programează-te</a>
+        <Link to="/contact" className={styles.cta}>Programează-te</Link>
 
         <button
           className={`${styles.hamburger} ${menuOpen ? styles.menuOpen : ''}`}
@@ -63,15 +64,15 @@ export default function Nav() {
         aria-hidden={!menuOpen}
       >
         <ul role="list">
-          {NAV_LINKS.map(({ label, href }) => (
-            <li key={href}>
-              <a href={href} className={styles.mobileLink} onClick={close}>{label}</a>
+          {NAV_LINKS.map(({ label, to }) => (
+            <li key={to}>
+              <Link to={to} className={styles.mobileLink} onClick={close}>{label}</Link>
             </li>
           ))}
         </ul>
-        <a href="#contact" className={`${styles.cta} ${styles.mobileCta}`} onClick={close}>
+        <Link to="/contact" className={`${styles.cta} ${styles.mobileCta}`} onClick={close}>
           Programează-te
-        </a>
+        </Link>
       </div>
     </nav>
   )

@@ -1,33 +1,22 @@
-import Nav from './components/Nav/Nav.jsx'
-import Hero from './components/Hero/Hero.jsx'
-import Servicii from './components/Servicii/Servicii.jsx'
-import PrimaVizita from './components/PrimaVizita/PrimaVizita.jsx'
-import Echipa from './components/Echipa/Echipa.jsx'
-import Recenzii from './components/Recenzii/Recenzii.jsx'
-import FAQ from './components/FAQ/FAQ.jsx'
-import CTA from './components/CTA/CTA.jsx'
-import Contact from './components/Contact/Contact.jsx'
-import Footer from './components/Footer/Footer.jsx'
-import WhatsApp from './components/WhatsApp/WhatsApp.jsx'
+import { Routes, Route } from 'react-router-dom'
+import HomePage from './pages/HomePage'
+import ServiciiPage from './pages/ServiciiPage'
+import PrimaVizitaPage from './pages/PrimaVizitaPage'
+import EchipaPage from './pages/EchipaPage'
+import RecenziiPage from './pages/RecenziiPage'
+import FAQPage from './pages/FAQPage'
+import ContactPage from './pages/ContactPage'
 
-function App() {
+export default function App() {
   return (
-    <>
-      <Nav />
-      <main>
-        <Hero />
-        <Servicii />
-        <PrimaVizita />
-        <Echipa />
-        <Recenzii />
-        <FAQ />
-        <CTA />
-        <Contact />
-      </main>
-      <Footer />
-      <WhatsApp />
-    </>
+    <Routes>
+      <Route path="/" element={<HomePage />} />
+      <Route path="/servicii" element={<ServiciiPage />} />
+      <Route path="/prima-vizita" element={<PrimaVizitaPage />} />
+      <Route path="/echipa" element={<EchipaPage />} />
+      <Route path="/recenzii" element={<RecenziiPage />} />
+      <Route path="/faq" element={<FAQPage />} />
+      <Route path="/contact" element={<ContactPage />} />
+    </Routes>
   )
 }
-
-export default App

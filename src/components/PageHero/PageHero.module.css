@@ -1,0 +1,132 @@
+.hero {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+  min-height: 260px;
+  padding: 56px var(--section-padding-h) 44px;
+}
+
+.dark {
+  background: var(--color-dark);
+}
+
+.light {
+  background: var(--color-light-bg);
+}
+
+.inner {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+.eyebrow {
+  font-family: var(--font-body);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+  opacity: 0.6;
+}
+
+.dark .eyebrow {
+  color: var(--color-text-on-dark);
+}
+
+.light .eyebrow {
+  color: var(--color-dark);
+}
+
+.title {
+  font-family: var(--font-display);
+  font-size: clamp(44px, 7.5vw, 84px);
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+  line-height: 1;
+  margin: 0;
+}
+
+.dark .title {
+  color: var(--color-white);
+}
+
+.light .title {
+  color: var(--color-dark);
+}
+
+.subtitle {
+  font-family: var(--font-body);
+  font-size: 14px;
+  line-height: 1.65;
+  max-width: 520px;
+  margin-top: 14px;
+}
+
+.dark .subtitle {
+  color: var(--color-text-on-dark-muted);
+}
+
+.light .subtitle {
+  color: var(--color-dark);
+  opacity: 0.6;
+}
+
+.rule {
+  width: 44px;
+  height: 2px;
+  margin-top: 18px;
+}
+
+.dark .rule {
+  background: var(--color-btn);
+}
+
+.light .rule {
+  background: var(--color-dark);
+  opacity: 0.3;
+}
+
+.ghost {
+  position: absolute;
+  right: -1%;
+  bottom: -0.12em;
+  font-family: var(--font-display);
+  font-size: clamp(100px, 16vw, 240px);
+  font-weight: 700;
+  text-transform: uppercase;
+  line-height: 1;
+  user-select: none;
+  pointer-events: none;
+  z-index: 1;
+  white-space: nowrap;
+}
+
+.dark .ghost {
+  color: var(--color-white);
+  opacity: 0.04;
+}
+
+.light .ghost {
+  color: var(--color-dark);
+  opacity: 0.055;
+}
+
+@media (min-width: 768px) {
+  .hero {
+    min-height: 320px;
+    padding: 72px 48px 56px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .hero {
+    min-height: 360px;
+    padding-left: max(48px, calc((100% - var(--max-width)) / 2 + 24px));
+    padding-right: max(48px, calc((100% - var(--max-width)) / 2 + 24px));
+  }
+}
