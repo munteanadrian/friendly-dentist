@@ -30,7 +30,7 @@ export default function Footer() {
           
           <div className={styles.brandCol}>
             <a href="#" className={styles.logoLink} aria-label="Friendly Dentist — acasă">
-              <img src="/logo.png" alt="Friendly Dentist Logo" className={styles.logoImg} />
+              <img src="/logo.webp" alt="Friendly Dentist Logo" className={styles.logoImg} />
             </a>
             <p className={styles.tagline}>Se poate și <span className={styles.cursive}>altfel</span>.</p>
           </div>

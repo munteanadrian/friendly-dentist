@@ -31,7 +31,7 @@ export default function Nav() {
     <nav className={`${styles.nav} ${atTop ? styles.transparent : styles.opaque}`} aria-label="Navigație principală">
       <div className={styles.inner}>
         <a href="#" className={styles.logo} aria-label="Friendly Dentist — acasă">
-          <img src="/logo.png" alt="Friendly Dentist" className={styles.logoImg} />
+          <img src="/logo.webp" alt="Friendly Dentist" className={styles.logoImg} />
         </a>
 
         <ul className={styles.links} role="list">

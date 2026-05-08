@@ -27,15 +27,17 @@
     <meta name="theme-color" content="#3A3939" />
 
     <!-- Favicon -->
-    <link rel="icon" type="image/png" href="/logo.png" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
 
-    <!-- Fonts -->
+    <!-- Fonts: preload then apply async to avoid render-blocking -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant:wght@400&family=Montserrat:wght@300;400;500;600&display=swap&subset=latin,latin-ext" />
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cormorant:wght@400&family=Montserrat:wght@300;400;500;600&display=swap&subset=latin,latin-ext" />
+    <link rel="stylesheet" media="print" onload="this.media='all'" href="https://fonts.googleapis.com/css2?family=Cormorant:wght@400&family=Montserrat:wght@300;400;500;600&display=swap&subset=latin,latin-ext" />
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant:wght@400&family=Montserrat:wght@300;400;500;600&display=swap&subset=latin,latin-ext" /></noscript>
 
     <!-- Hero image preload (LCP) -->
-    <link rel="preload" as="image" href="/cover%20fara%20text.jpg" />
+    <link rel="preload" as="image" href="/cover-fara-text.webp" type="image/webp" />
 
     <!-- Local business schema -->
     <script type="application/ld+json">

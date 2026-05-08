@@ -6,7 +6,7 @@ const DOCTORS = [
     id: 1,
     name: 'Dr. Mihaela Stănculete',
     specialty: 'Medic Primar Endodont',
-    photo: '/CM_Photo_Art-266.jpg',
+    photo: '/CM_Photo_Art-266.webp',
     studies: 'Universitatea de Medicină și Farmacie „Carol Davila", București',
     experience: '18 ani experiență',
     description:
@@ -17,7 +17,7 @@ const DOCTORS = [
     id: 2,
     name: 'Dr. Sanziana Nedelea',
     specialty: 'Medic Specialist Protetică',
-    photo: '/CM_Photo_Art-269.jpg',
+    photo: '/CM_Photo_Art-269.webp',
     studies: 'UMF „Gr. T. Popa" Iași — specializare în protetică mobilă și fixă',
     experience: '12 ani experiență',
     description:
@@ -28,7 +28,7 @@ const DOCTORS = [
     id: 3,
     name: 'Dr. Dana Trincă',
     specialty: 'Medic Specialist Ortodont',
-    photo: '/CM_Photo_Art-273.jpg',
+    photo: '/CM_Photo_Art-273.webp',
     studies: 'UMF „Carol Davila" — masterat în ortodonție și ortopedie dento-facială',
     experience: '10 ani experiență',
     description:
@@ -39,7 +39,7 @@ const DOCTORS = [
     id: 4,
     name: 'Dr. Dana Stănculete',
     specialty: 'Medic Specialist Endodont',
-    photo: '/CM_Photo_Art-281.jpg',
+    photo: '/CM_Photo_Art-281.webp',
     studies: 'UMF „Carol Davila" — specializare postuniversitară în endodonție',
     experience: '14 ani experiență',
     description:
@@ -50,7 +50,7 @@ const DOCTORS = [
     id: 5,
     name: 'Dr. Alina Dumitrescu',
     specialty: 'Medic Specialist Parodontolog',
-    photo: '/CM_Photo_Art-296.jpg',
+    photo: '/CM_Photo_Art-296.webp',
     studies: 'UMF „Carol Davila" — specializare în parodontologie și implantologie',
     experience: '9 ani experiență',
     description:
@@ -115,13 +115,15 @@ export default function Echipa() {
   }, [activeDoctor])
 
   const scrollTo = (index) => {
-    const track = trackRef.current
-    const card = cardRefs.current[index]
-    if (track && card) {
-      const scrollPos = card.offsetLeft + card.offsetWidth / 2 - track.offsetWidth / 2
-      track.scrollTo({ left: scrollPos, behavior: 'smooth' })
-    }
     setCurrent(index)
+    requestAnimationFrame(() => {
+      const track = trackRef.current
+      const card = cardRefs.current[index]
+      if (track && card) {
+        const scrollPos = card.offsetLeft + card.offsetWidth / 2 - track.offsetWidth / 2
+        track.scrollTo({ left: scrollPos, behavior: 'smooth' })
+      }
+    })
   }
 
   const prev = () => scrollTo(Math.max(0, current - 1))
