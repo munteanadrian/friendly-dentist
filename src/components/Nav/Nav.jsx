@@ -1,8 +1,9 @@
 import { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import styles from './Nav.module.css'
 
 const NAV_LINKS = [
+  { label: 'Acasă', to: '/' },
   { label: 'Servicii', to: '/servicii' },
   { label: 'Prima Vizită', to: '/prima-vizita' },
   { label: 'Echipă', to: '/echipa' },
@@ -10,9 +11,15 @@ const NAV_LINKS = [
   { label: 'FAQ', to: '/faq' },
 ]
 
+// Pages that start with a light background — nav must be opaque from the top
+const LIGHT_BG_ROUTES = ['/prima-vizita', '/echipa', '/recenzii']
+
 export default function Nav() {
+  const { pathname } = useLocation()
   const [menuOpen, setMenuOpen] = useState(false)
   const [atTop, setAtTop] = useState(true)
+
+  const forcedOpaque = LIGHT_BG_ROUTES.includes(pathname)
 
   useEffect(() => {
     const onScroll = () => setAtTop(window.scrollY <= 4)
@@ -29,7 +36,7 @@ export default function Nav() {
   const close = () => setMenuOpen(false)
 
   return (
-    <nav className={`${styles.nav} ${atTop ? styles.transparent : styles.opaque}`} aria-label="Navigație principală">
+    <nav className={`${styles.nav} ${(atTop && !forcedOpaque) ? styles.transparent : styles.opaque}`} aria-label="Navigație principală">
       <div className={styles.inner}>
         <Link to="/" className={styles.logo} aria-label="Friendly Dentist — acasă">
           <img src="/logo.webp" alt="Friendly Dentist" className={styles.logoImg} />

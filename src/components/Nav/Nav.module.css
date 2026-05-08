@@ -25,7 +25,20 @@
 .opaque {
   background: var(--color-dark);
   border-bottom-color: rgba(255, 255, 255, 0.1);
+}
+
+/*
+  backdrop-filter on .nav itself makes it a containing block for
+  position:fixed children, breaking the full-screen mobile menu.
+  Use a pseudo-element instead so the nav never becomes a containing block.
+*/
+.opaque::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 0;
   backdrop-filter: blur(8px);
+  pointer-events: none;
 }
 
 .inner {

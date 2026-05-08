@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom'
 import styles from './Footer.module.css'
 
 const NAV_LINKS = [
+  { label: 'Acasă', to: '/' },
   { label: 'Servicii', to: '/servicii' },
   { label: 'Prima Vizită', to: '/prima-vizita' },
   { label: 'Echipă', to: '/echipa' },

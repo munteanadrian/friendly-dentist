@@ -4,7 +4,8 @@
   display: flex;
   align-items: flex-end;
   min-height: 260px;
-  padding: 56px var(--section-padding-h) 44px;
+  /* padding-top accounts for fixed 80px nav */
+  padding: calc(80px + 40px) var(--section-padding-h) 44px;
 }
 
 .dark {
@@ -119,13 +120,14 @@
 @media (min-width: 768px) {
   .hero {
     min-height: 320px;
-    padding: 72px 48px 56px;
+    padding: calc(80px + 56px) 48px 56px;
   }
 }
 
 @media (min-width: 1280px) {
   .hero {
     min-height: 360px;
+    padding-top: calc(80px + 72px);
     padding-left: max(48px, calc((100% - var(--max-width)) / 2 + 24px));
     padding-right: max(48px, calc((100% - var(--max-width)) / 2 + 24px));
   }
