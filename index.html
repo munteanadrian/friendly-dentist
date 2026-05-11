@@ -39,6 +39,22 @@
     <!-- Hero image preload (LCP) -->
     <link rel="preload" as="image" href="/cover-fara-text.webp" type="image/webp" />
 
+    <!-- Google Analytics 4 — replace G-XXXXXXXXXX with your Measurement ID -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      // Consent mode v2 — default denied (GDPR). Analytics only fires after user accepts.
+      gtag('consent', 'default', {
+        ad_storage: 'denied',
+        ad_user_data: 'denied',
+        ad_personalization: 'denied',
+        analytics_storage: 'denied'
+      });
+      gtag('js', new Date());
+      gtag('config', 'G-XXXXXXXXXX', { send_page_view: false });
+    </script>
+
     <!-- Local business schema -->
     <script type="application/ld+json">
     {

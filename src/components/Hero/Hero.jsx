@@ -1,5 +1,6 @@
 import useParallax from '../../hooks/useParallax'
 import styles from './Hero.module.css'
+import { trackEvent } from '../../utils/analytics'
 
 export default function Hero() {
   const offset = useParallax(0.35)
@@ -20,7 +21,7 @@ export default function Hero() {
             <p className={styles.script}>altfel</p>
           </div>
           <div className={styles.cta}>
-            <a href="#contact" className={styles.ctaBtn}>Programează-te</a>
+            <a href="#contact" className={styles.ctaBtn} onClick={() => trackEvent('cta_click', { location: 'hero' })}>Programează-te</a>
           </div>
         </div>
       </div>

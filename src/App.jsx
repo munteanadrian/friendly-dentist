@@ -1,5 +1,6 @@
 import { Routes, Route } from 'react-router-dom'
 import ScrollToTop from './components/ScrollToTop/ScrollToTop'
+import CookieBanner from './components/CookieBanner/CookieBanner'
 import HomePage from './pages/HomePage'
 import ServiciiPage from './pages/ServiciiPage'
 import PrimaVizitaPage from './pages/PrimaVizitaPage'
@@ -12,6 +13,7 @@ export default function App() {
   return (
     <>
       <ScrollToTop />
+      <CookieBanner />
       <Routes>
       <Route path="/" element={<HomePage />} />
       <Route path="/servicii" element={<ServiciiPage />} />

@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import styles from './Nav.module.css'
+import { trackEvent } from '../../utils/analytics'
 
 const NAV_LINKS = [
   { label: 'Acasă', to: '/' },
@@ -50,7 +51,7 @@ export default function Nav() {
           ))}
         </ul>
 
-        <Link to="/contact" className={styles.cta}>Programează-te</Link>
+        <Link to="/contact" className={styles.cta} onClick={() => trackEvent('cta_click', { location: 'nav' })}>Programează-te</Link>
 
         <button
           className={`${styles.hamburger} ${menuOpen ? styles.menuOpen : ''}`}
@@ -77,7 +78,7 @@ export default function Nav() {
             </li>
           ))}
         </ul>
-        <Link to="/contact" className={`${styles.cta} ${styles.mobileCta}`} onClick={close}>
+        <Link to="/contact" className={`${styles.cta} ${styles.mobileCta}`} onClick={() => { close(); trackEvent('cta_click', { location: 'nav_mobile' }) }}>
           Programează-te
         </Link>
       </div>

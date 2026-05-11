@@ -1,4 +1,5 @@
 import styles from './WhatsApp.module.css'
+import { trackEvent } from '../../utils/analytics'
 
 const WhatsAppIcon = () => (
   <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -14,6 +15,7 @@ export default function WhatsApp() {
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Contactează-ne pe WhatsApp"
+      onClick={() => trackEvent('whatsapp_click', { location: 'floating_button' })}
     >
       <WhatsAppIcon />
     </a>

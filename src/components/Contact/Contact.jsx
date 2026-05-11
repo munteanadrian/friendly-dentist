@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import styles from './Contact.module.css'
+import { trackEvent } from '../../utils/analytics'
 
 const SERVICES = [
   'Protetică Dentară',
@@ -84,7 +85,7 @@ export default function Contact() {
     const errs = validate()
     if (Object.keys(errs).length) { setErrors(errs); return }
 
-    // Open WhatsApp with pre-filled message
+    trackEvent('generate_lead', { method: 'whatsapp_form', service: form.service || 'unspecified' })
     const waUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${buildWhatsAppMessage()}`
     window.open(waUrl, '_blank', 'noopener,noreferrer')
     setSubmitted(true)
@@ -108,7 +109,7 @@ export default function Contact() {
 
         {/* ── Info bar ── */}
         <div className={styles.infoBar}>
-          <a href="tel:+40743169796" className={styles.infoItem} id="contact-phone-link">
+          <a href="tel:+40743169796" className={styles.infoItem} id="contact-phone-link" onClick={() => trackEvent('phone_call', { location: 'contact_section' })}>
             <div className={styles.infoIcon}><PhoneIcon /></div>
             <div className={styles.infoTexts}>
               <p className={styles.infoLabel}>Telefon</p>
@@ -157,6 +158,7 @@ export default function Contact() {
                 rel="noopener noreferrer"
                 className={styles.mapLink}
                 id="contact-map-directions"
+                onClick={() => trackEvent('directions_click')}
               >
                 <PinIcon />
                 Deschide în Google Maps
