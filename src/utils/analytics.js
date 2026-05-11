@@ -1,6 +1,6 @@
 // Replace these two IDs before going live
-const GA4_ID = 'G-XXXXXXXXXX'
-const CLARITY_ID = 'REPLACE_CLARITY_ID'
+const GA4_ID = 'G-JNJ9G321SV'
+const CLARITY_ID = 'wpluxr6zkz'
 
 export const trackEvent = (name, params = {}) => {
   if (typeof window.gtag === 'function') {
