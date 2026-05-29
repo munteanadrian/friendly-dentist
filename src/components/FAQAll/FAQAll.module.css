@@ -1,0 +1,128 @@
+.section {
+  background: var(--color-light-bg);
+  padding: var(--space-2xl) 0;
+}
+
+.inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 var(--section-padding-h);
+}
+
+/* Single column on mobile */
+.grid {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xl);
+}
+
+/* Two columns on desktop */
+@media (min-width: 768px) {
+  .grid {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 64px;
+  }
+
+  .col {
+    flex: 1;
+    min-width: 0;
+  }
+}
+
+.col {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xl);
+}
+
+/* Category */
+.category {
+  display: flex;
+  flex-direction: column;
+}
+
+.categoryLabel {
+  font-family: var(--font-display);
+  font-size: 28px;
+  font-weight: 400;
+  color: var(--color-dark);
+  margin: 0 0 var(--space-md) 0;
+  line-height: 1.2;
+}
+
+/* Accordion */
+.accordionList {
+  display: flex;
+  flex-direction: column;
+}
+
+.accordionItem {
+  border-bottom: 1px solid rgba(58, 57, 57, 0.1);
+}
+
+.firstItem {
+  border-top: 1px solid rgba(58, 57, 57, 0.1);
+}
+
+.trigger {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: var(--space-md) 0;
+  gap: var(--space-md);
+  text-align: left;
+}
+
+.trigger:focus-visible {
+  outline: 2px solid var(--color-btn);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+.question {
+  font-family: var(--font-body);
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--color-dark);
+  line-height: 1.5;
+}
+
+.icon {
+  font-size: 20px;
+  line-height: 1;
+  color: rgba(58, 57, 57, 0.4);
+  flex-shrink: 0;
+  display: inline-block;
+  transition: transform 0.3s ease;
+  transform-origin: center;
+}
+
+.iconOpen {
+  transform: rotate(45deg);
+}
+
+/* Answer panel */
+.answerPanel {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+
+.answerOpen {
+  max-height: 400px;
+}
+
+.answerText {
+  font-family: var(--font-body);
+  font-size: 14px;
+  line-height: 1.75;
+  color: rgba(58, 57, 57, 0.65);
+  margin: 0;
+  padding-bottom: var(--space-md);
+}

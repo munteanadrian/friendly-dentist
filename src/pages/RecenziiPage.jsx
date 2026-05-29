@@ -1,5 +1,6 @@
 import Nav from '../components/Nav/Nav.jsx'
 import PageHero from '../components/PageHero/PageHero.jsx'
+import RecenziiStats from '../components/RecenziiStats/RecenziiStats.jsx'
 import Recenzii from '../components/Recenzii/Recenzii.jsx'
 import Contact from '../components/Contact/Contact.jsx'
 import Footer from '../components/Footer/Footer.jsx'
@@ -17,6 +18,7 @@ export default function RecenziiPage() {
           theme="dark"
           ghost="Recenzii"
         />
+        <RecenziiStats />
         <Recenzii />
         <Contact />
       </main>

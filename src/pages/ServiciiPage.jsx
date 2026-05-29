@@ -1,6 +1,7 @@
 import Nav from '../components/Nav/Nav.jsx'
 import PageHero from '../components/PageHero/PageHero.jsx'
 import Servicii from '../components/Servicii/Servicii.jsx'
+import ServiciiDetailed from '../components/ServiciiDetailed/ServiciiDetailed.jsx'
 import Contact from '../components/Contact/Contact.jsx'
 import Footer from '../components/Footer/Footer.jsx'
 import WhatsApp from '../components/WhatsApp/WhatsApp.jsx'
@@ -18,6 +19,7 @@ export default function ServiciiPage() {
           ghost="Servicii"
         />
         <Servicii />
+        <ServiciiDetailed />
         <Contact />
       </main>
       <Footer />

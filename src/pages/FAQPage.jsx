@@ -1,6 +1,6 @@
 import Nav from '../components/Nav/Nav.jsx'
 import PageHero from '../components/PageHero/PageHero.jsx'
-import FAQ from '../components/FAQ/FAQ.jsx'
+import FAQAll from '../components/FAQAll/FAQAll.jsx'
 import Contact from '../components/Contact/Contact.jsx'
 import Footer from '../components/Footer/Footer.jsx'
 import WhatsApp from '../components/WhatsApp/WhatsApp.jsx'
@@ -17,7 +17,7 @@ export default function FAQPage() {
           theme="dark"
           ghost="FAQ"
         />
-        <FAQ />
+        <FAQAll />
         <Contact />
       </main>
       <Footer />

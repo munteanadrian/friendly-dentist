@@ -1,18 +1,7 @@
 .section {
-  background: linear-gradient(135deg, #f0ede6, #e8e4dc, #f0ede6);
-  background-size: 300% 300%;
-  animation: gradientShift 12s ease-in-out infinite;
-  padding: var(--space-lg) 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  position: relative;
-}
-
-@keyframes gradientShift {
-  0%, 100% { background-position: 0% 50%; }
-  50%      { background-position: 100% 50%; }
+  background: var(--color-light-bg);
+  padding: var(--space-3xl) 0;
+  border-top: 1px solid rgba(58, 57, 57, 0.08);
 }
 
 .inner {
@@ -21,43 +10,160 @@
   padding: 0 var(--section-padding-h);
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: var(--space-md);
+  gap: var(--space-2xl);
 }
 
-.text {
+/* ── Left ── */
+.left {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.eyebrow {
   font-family: var(--font-display);
-  font-size: clamp(36px, 5vw, 64px);
+  font-size: 18px;
+  font-style: italic;
   font-weight: 400;
+  color: var(--color-btn);
+  margin: 0;
+}
+
+.heading {
+  font-family: var(--font-display);
+  font-size: clamp(48px, 6vw, 80px);
+  font-weight: 400;
+  text-transform: uppercase;
   color: var(--color-dark);
-  line-height: 1.1;
+  line-height: 0.9;
+  letter-spacing: -0.02em;
+  margin: 0;
 }
 
 .script {
   font-family: var(--font-script);
-  font-size: 1.2em;
-  color: #8A8383;
+  font-size: 1.05em;
+  text-transform: none;
+  color: var(--color-btn);
   display: block;
-  margin-top: -10px;
-}
-
-.indicator {
-  font-family: var(--font-body);
-  font-size: 20px;
-  color: var(--color-dark);
-  opacity: 0.45;
-  margin-top: 4px;
-  animation: bounce 2.5s infinite ease-in-out;
   line-height: 1;
+  margin-top: 4px;
 }
 
-@keyframes bounce {
-  0%, 100% {
-    transform: translateY(0);
-    opacity: 0.5;
+.sub {
+  font-family: var(--font-body);
+  font-size: 15px;
+  line-height: 1.7;
+  color: rgba(58, 57, 57, 0.6);
+  max-width: 340px;
+  margin: 0;
+}
+
+/* ── Right ── */
+.right {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+}
+
+.phoneBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  text-decoration: none;
+  padding: var(--space-lg);
+  background: var(--color-white);
+  border-radius: 16px;
+  border: 1px solid rgba(58, 57, 57, 0.1);
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.phoneBlock:hover {
+  border-color: rgba(58, 57, 57, 0.25);
+  box-shadow: 0 4px 24px rgba(58, 57, 57, 0.08);
+}
+
+.phoneLabel {
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-btn);
+}
+
+.phoneNumber {
+  font-family: var(--font-display);
+  font-size: clamp(36px, 5vw, 52px);
+  font-weight: 400;
+  color: var(--color-dark);
+  line-height: 1;
+  letter-spacing: -0.01em;
+}
+
+.phoneHours {
+  font-family: var(--font-body);
+  font-size: 13px;
+  color: rgba(58, 57, 57, 0.5);
+  margin-top: 2px;
+}
+
+/* ── Actions ── */
+.actions {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.ctaPrimary {
+  display: inline-block;
+  padding: 14px 32px;
+  background: var(--color-dark);
+  color: var(--color-white);
+  border-radius: 32px;
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-decoration: none;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.ctaPrimary:hover {
+  opacity: 0.85;
+  transform: translateY(-2px);
+}
+
+.ctaSecondary {
+  font-family: var(--font-body);
+  font-size: 14px;
+  color: rgba(58, 57, 57, 0.6);
+  text-decoration: none;
+  letter-spacing: 0.02em;
+  transition: color 0.2s ease;
+  padding: 4px 0;
+  border-bottom: 1px solid rgba(58, 57, 57, 0.2);
+}
+
+.ctaSecondary:hover {
+  color: var(--color-dark);
+  border-bottom-color: var(--color-dark);
+}
+
+/* ── Desktop ── */
+@media (min-width: 768px) {
+  .inner {
+    flex-direction: row;
+    align-items: center;
+    gap: var(--space-3xl);
   }
-  50% {
-    transform: translateY(12px);
-    opacity: 0.8;
+
+  .left {
+    flex: 1;
+  }
+
+  .right {
+    flex: 1;
   }
 }
