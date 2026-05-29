@@ -5,57 +5,57 @@ const DOCTORS = [
   {
     id: 1,
     name: 'Dr. Mihaela Stănculete',
-    specialty: 'Medic Primar Endodont',
+    specialty: 'Fondatoarea clinicii · Protetică',
     photo: '/CM_Photo_Art-266.webp',
     studies: 'Universitatea de Medicină și Farmacie „Carol Davila", București',
     experience: '18 ani experiență',
     description:
-      'Mihaela este specialista noastră în tratamente de canal. Lucrează cu precizie și răbdare, transformând una din cele mai temute proceduri într-o experiență surprinzător de calmă. Pacienții o descriu adesea ca pe cineva care „îți explică totul înainte să simți ceva".',
-    tags: ['Tratamente de canal', 'Microscop dentar', 'Endodonție regenerativă'],
+      'Medic specialist protetică dentară și fondatoarea Friendly Dentist. Mereu gata să asculte și să ofere planuri de tratament personalizate. Pentru ea, stomatologia înseamnă mai mult decât estetică — înseamnă încredere și o relație sinceră cu fiecare pacient.',
+    tags: ['Coroane ceramice', 'Fațete dentare', 'Proteze pe implanturi'],
   },
   {
     id: 2,
-    name: 'Dr. Sanziana Nedelea',
-    specialty: 'Medic Specialist Protetică',
+    name: 'Dr. Sânziana Nedelea',
+    specialty: 'Protetică Dentară',
     photo: '/CM_Photo_Art-269.webp',
     studies: 'UMF „Gr. T. Popa" Iași — specializare în protetică mobilă și fixă',
     experience: '12 ani experiență',
     description:
-      'Sanziana se ocupă de restaurări estetice și funcționale — coroane, fațete, proteze. Ochiul ei pentru detaliu și simțul estetic fac diferența atunci când rezultatul trebuie să pară absolut natural.',
+      'Votată de pacienți ca cel mai grijuliu și empatic medic. Face coroane, fațete și proteze pe implanturi. Mereu cu zâmbetul pe buze, Sânzi ajută pacienții să învingă frica de dentist!',
     tags: ['Coroane ceramice', 'Fațete dentare', 'Proteze'],
   },
   {
     id: 3,
-    name: 'Dr. Dana Trincă',
-    specialty: 'Medic Specialist Ortodont',
-    photo: '/CM_Photo_Art-273.webp',
-    studies: 'UMF „Carol Davila" — masterat în ortodonție și ortopedie dento-facială',
-    experience: '10 ani experiență',
-    description:
-      'Dana lucrează cu aparate clasice și alinere invizibile. Îi place să vadă transformarea completă — nu doar cum arată dinții, ci cum se simte pacientul în propria față. Abordarea ei combină tehnica cu un simț estetic atent.',
-    tags: ['Alinere invizibile', 'Aparat fix', 'Ortodonție la adulți'],
-  },
-  {
-    id: 4,
-    name: 'Dr. Dana Stănculete',
-    specialty: 'Medic Specialist Endodont',
+    name: 'Dr. Dana Voicu',
+    specialty: 'Endodonție',
     photo: '/CM_Photo_Art-281.webp',
     studies: 'UMF „Carol Davila" — specializare postuniversitară în endodonție',
     experience: '14 ani experiență',
     description:
-      'Dana aduce aceeași atenție la detalii ca toată echipa, dar cu o liniște aparte. Pacienții care vin anxioși pleacă de obicei surprinși de cât de simplu a decurs totul. Lucrează mult cu microscop dentar pentru tratamente de precizie.',
-    tags: ['Retreatamente de canal', 'Microscop dentar', 'Urgențe dentare'],
+      'Aduce speranță dinților pe care mulți îi cred fără scăpare. Specialist endodont, efectuează tratamente de canal la microscop atunci când caria a avansat mult și dintele a devenit dureros.',
+    tags: ['Tratamente de canal', 'Microscop dentar', 'Urgențe dentare'],
   },
   {
-    id: 5,
-    name: 'Dr. Alina Dumitrescu',
-    specialty: 'Medic Specialist Parodontolog',
+    id: 4,
+    name: 'Dr. Theodora Pîrvu',
+    specialty: 'Parodontologie',
     photo: '/CM_Photo_Art-296.webp',
     studies: 'UMF „Carol Davila" — specializare în parodontologie și implantologie',
     experience: '9 ani experiență',
     description:
-      'Alina se ocupă de sănătatea gingiilor și a structurilor de suport ale dinților. Știe că parodontologia e adesea ignorată până devine o problemă — de aceea pune accent pe prevenție și pe educarea pacienților în rutina zilnică.',
+      'Ne învață că nu e normal ca gingiile să sângereze! Om cald, cu o răbdare de fier. Iubește ceea ce face și nu te lasă niciodată să pleci din cabinet fără periuțe interdentare.',
     tags: ['Detartraj profesional', 'Tratament parodontal', 'Chirurgie gingivală'],
+  },
+  {
+    id: 5,
+    name: 'Dr. Dana Trîncă',
+    specialty: 'Ortodonție',
+    photo: '/CM_Photo_Art-273.webp',
+    studies: 'UMF „Carol Davila" — masterat în ortodonție și ortopedie dento-facială',
+    experience: '10 ani experiență',
+    description:
+      'Știe că fiecare zâmbet are nevoie de un plan personalizat. Prietenoasă, răbdătoare și mereu cu gluma la ea — exact genul de om lângă care uiți că porți aparat dentar.',
+    tags: ['Alinere invizibile', 'Aparat fix', 'Ortodonție la adulți'],
   },
 ]
 
@@ -135,10 +135,10 @@ export default function Echipa() {
 
         {/* Header */}
         <div className={styles.header} ref={headerRef}>
-          <p className={styles.eyebrow}>specialiști, nu generaliști</p>
+          <p className={styles.eyebrow}>5 specialiști, o singură misiune</p>
           <h2 className={styles.heading}>Echipa noastră</h2>
           <p className={styles.intro}>
-            Fiecare medic face un singur lucru — și îl face foarte bine. Cunoaște-i.
+            Fiecare medic din clinică are o specializare distinctă — astfel, dintele tău ajunge întotdeauna la cel mai bun expert.
           </p>
         </div>
 
@@ -201,6 +201,12 @@ export default function Echipa() {
               aria-label={doc.name}
             />
           ))}
+        </div>
+
+        {/* Team CTA */}
+        <div className={styles.teamCta}>
+          <p className={styles.teamCtaText}>Vino la o consultație de cunoaștere. Nicio procedură, nicio presiune — doar o discuție.</p>
+          <a href="#contact" className={styles.teamCtaBtn}>Programează-te →</a>
         </div>
 
       </div>

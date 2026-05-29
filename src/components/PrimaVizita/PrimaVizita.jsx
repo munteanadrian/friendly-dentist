@@ -9,8 +9,8 @@ const STEPS = [
   },
   {
     number: '02',
-    title: 'NE CUNOAȘTEM',
-    body: 'Primele 15 minute sunt doar pentru discuție. Niciun instrument, nicio grabă, doar o conversație calmă.',
+    title: 'NE CUNOAȘTEM ÎN LINIȘTE',
+    body: 'Primele 15 minute sunt doar pentru discuție. Niciun instrument, nicio grabă — doar o conversație calmă.',
   },
   {
     number: '03',
@@ -19,7 +19,7 @@ const STEPS = [
   },
   {
     number: '04',
-    title: 'PLAN CLAR',
+    title: 'PLECI CU UN PLAN CLAR',
     body: 'Primești un plan detaliat cu prețuri transparente. Fără presiune — vii înapoi când ești gata.',
   },
 ]
@@ -56,7 +56,7 @@ export default function PrimaVizita() {
           <p className={styles.eyebrow}>vrem să știi exact la ce să te aștepți</p>
           <h2 className={styles.heading}>PRIMA<br />VIZITĂ</h2>
           <p className={styles.sub}>
-            Fiecare pas e gândit ca tu să te simți în control, nu ca un pacient printre pacienți.
+            Vrem să știi exact la ce să te aștepți. Nicio surpriză, nicio procedură fără acordul tău.
           </p>
           <a href="#contact" className={styles.cta}>Programează-te</a>
         </div>

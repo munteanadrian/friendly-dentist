@@ -20,7 +20,11 @@ const ITEMS = [
   },
   {
     q: 'Cât durează o ședință?',
-    a: 'Consultația și igienizarea durează aproximativ 45–60 de minute. Tratamentele mai complexe pot dura mai mult — îți spunem dinainte exact la ce să te aștepți.',
+    a: 'Consultația și igienizarea durează aproximativ 45–60 de minute. Nu grăbim niciodată — mergem în ritmul tău, nu al nostru.',
+  },
+  {
+    q: 'Acceptați CNAS sau asigurări private?',
+    a: 'Da! Lucrăm cu CNAS și cu principalele asigurări private din România. Sună-ne și verificăm împreună exact ce se acoperă în cazul tău.',
   },
 ]
 

@@ -3,13 +3,15 @@ import styles from './Contact.module.css'
 import { trackEvent } from '../../utils/analytics'
 
 const SERVICES = [
-  'Protetică Dentară',
-  'Endodonție la Microscop',
+  'Consultație generală',
+  'Urgență dureroasă',
+  'Protetică (coroane, fațete)',
+  'Endodonție (tratament de canal)',
   'Parodontologie',
   'Ortodonție',
   'Igienizare & Prevenție',
   'Stomatologie Pediatrică',
-  'Nu știu încă',
+  'Altceva',
 ]
 
 const WHATSAPP_NUMBER = '40743169796' // E.164 without +
@@ -46,7 +48,7 @@ const CheckIcon = () => (
   </svg>
 )
 
-const INITIAL_FORM = { name: '', phone: '', email: '', service: '', message: '' }
+const INITIAL_FORM = { prenume: '', nume: '', phone: '', service: '', message: '' }
 
 export default function Contact() {
   const [form, setForm] = useState(INITIAL_FORM)
@@ -60,10 +62,9 @@ export default function Contact() {
 
   const validate = () => {
     const e = {}
-    if (!form.name.trim()) e.name = 'Câmp obligatoriu'
+    if (!form.prenume.trim()) e.prenume = 'Câmp obligatoriu'
+    if (!form.nume.trim()) e.nume = 'Câmp obligatoriu'
     if (!form.phone.trim()) e.phone = 'Câmp obligatoriu'
-    if (!form.email.trim()) e.email = 'Câmp obligatoriu'
-    else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) e.email = 'Adresă de email invalidă'
     return e
   }
 
@@ -71,9 +72,8 @@ export default function Contact() {
     const lines = [
       '🦷 *Cerere programare — Friendly Dentist*',
       '',
-      `👤 *Nume:* ${form.name}`,
+      `👤 *Nume:* ${form.prenume} ${form.nume}`,
       `📞 *Telefon:* ${form.phone}`,
-      `📧 *Email:* ${form.email}`,
       form.service ? `🔧 *Serviciu dorit:* ${form.service}` : null,
       form.message ? `💬 *Mesaj:* ${form.message}` : null,
     ].filter(Boolean)
@@ -85,7 +85,7 @@ export default function Contact() {
     const errs = validate()
     if (Object.keys(errs).length) { setErrors(errs); return }
 
-    trackEvent('generate_lead', { method: 'whatsapp_form', service: form.service || 'unspecified' })
+    trackEvent('generate_lead', { method: 'whatsapp_form', service: form.service || 'nespecificat' })
     const waUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${buildWhatsAppMessage()}`
     window.open(waUrl, '_blank', 'noopener,noreferrer')
     setSubmitted(true)
@@ -169,8 +169,8 @@ export default function Contact() {
           {/* Form card */}
           <div className={styles.card}>
             <div className={styles.cardHeader}>
-              <h3 className={styles.formHeading}>Fă o programare</h3>
-              <p className={styles.formSubtext}>Completează și te contactăm în cel mai scurt timp.</p>
+              <h3 className={styles.formHeading}>Programează-te acum</h3>
+              <p className={styles.formSubtext}>Completează mai jos și te sunăm noi.</p>
             </div>
 
             {submitted ? (
@@ -183,46 +183,46 @@ export default function Contact() {
               <form className={styles.form} onSubmit={handleSubmit} noValidate>
                 <div className={styles.row}>
                   <div className={styles.field}>
-                    <label className={styles.label} htmlFor="contact-name">Nume</label>
+                    <label className={styles.label} htmlFor="contact-prenume">Prenume</label>
                     <input
-                      id="contact-name"
-                      className={`${styles.input} ${errors.name ? styles.inputError : ''}`}
+                      id="contact-prenume"
+                      className={`${styles.input} ${errors.prenume ? styles.inputError : ''}`}
                       type="text"
-                      value={form.name}
-                      onChange={set('name')}
-                      autoComplete="name"
-                      placeholder="Ion Popescu"
+                      value={form.prenume}
+                      onChange={set('prenume')}
+                      autoComplete="given-name"
+                      placeholder="Ion"
                     />
-                    {errors.name && <span className={styles.error}>{errors.name}</span>}
+                    {errors.prenume && <span className={styles.error}>{errors.prenume}</span>}
                   </div>
 
                   <div className={styles.field}>
-                    <label className={styles.label} htmlFor="contact-phone">Telefon</label>
+                    <label className={styles.label} htmlFor="contact-nume">Nume</label>
                     <input
-                      id="contact-phone"
-                      className={`${styles.input} ${errors.phone ? styles.inputError : ''}`}
-                      type="tel"
-                      value={form.phone}
-                      onChange={set('phone')}
-                      autoComplete="tel"
-                      placeholder="07xx xxx xxx"
+                      id="contact-nume"
+                      className={`${styles.input} ${errors.nume ? styles.inputError : ''}`}
+                      type="text"
+                      value={form.nume}
+                      onChange={set('nume')}
+                      autoComplete="family-name"
+                      placeholder="Popescu"
                     />
-                    {errors.phone && <span className={styles.error}>{errors.phone}</span>}
+                    {errors.nume && <span className={styles.error}>{errors.nume}</span>}
                   </div>
                 </div>
 
                 <div className={styles.field}>
-                  <label className={styles.label} htmlFor="contact-email">Email</label>
+                  <label className={styles.label} htmlFor="contact-phone">Telefon</label>
                   <input
-                    id="contact-email"
-                    className={`${styles.input} ${errors.email ? styles.inputError : ''}`}
-                    type="email"
-                    value={form.email}
-                    onChange={set('email')}
-                    autoComplete="email"
-                    placeholder="adresa@email.ro"
+                    id="contact-phone"
+                    className={`${styles.input} ${errors.phone ? styles.inputError : ''}`}
+                    type="tel"
+                    value={form.phone}
+                    onChange={set('phone')}
+                    autoComplete="tel"
+                    placeholder="07xx xxx xxx"
                   />
-                  {errors.email && <span className={styles.error}>{errors.email}</span>}
+                  {errors.phone && <span className={styles.error}>{errors.phone}</span>}
                 </div>
 
                 <div className={styles.field}>
@@ -255,8 +255,9 @@ export default function Contact() {
 
                 <button type="submit" className={styles.submit} id="contact-submit">
                   <span className={styles.submitIcon}><WhatsAppIcon /></span>
-                  Trimite pe WhatsApp
+                  Trimite cererea de programare
                 </button>
+                <p className={styles.formNote}>Date securizate · Nu trimitem spam</p>
               </form>
             )}
           </div>

@@ -1,0 +1,34 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git add *)",
+      "Bash(git commit *)",
+      "Bash(rtk npm *)",
+      "Bash(rtk read *)",
+      "Bash(rtk curl *)",
+      "Bash(rtk ls *)",
+      "Bash(rtk git *)",
+      "Bash(git remote *)",
+      "Bash(rtk grep *)",
+      "Bash(npm install *)",
+      "Bash(npm --version)",
+      "Bash(rtk find *)",
+      "Bash(xargs ls -lh)",
+      "Bash(command -v ffmpeg)",
+      "Bash(node -e \"require\\('sharp'\\)\")",
+      "Bash(sips --getProperty format /Users/adrian/work/friendly-dentist/public/CM_Photo_Art-266.jpg)",
+      "Bash(sips --formats)",
+      "Bash(sips *)",
+      "Bash(rtk brew *)",
+      "Bash(cwebp -q 82 /tmp/test-resized.jpg -o /tmp/test.webp)",
+      "Bash(cwebp -q 85 /tmp/hero-r.jpg -o \"/Users/adrian/work/friendly-dentist/public/cover-fara-text.webp\")",
+      "Bash(cwebp -q 90 /Users/adrian/work/friendly-dentist/public/logo-200.png -o /Users/adrian/work/friendly-dentist/public/logo.webp)",
+      "Bash(rtk du *)",
+      "Bash(pkill -f \"vite.*5175\")",
+      "Bash(node *)",
+      "Bash(npm info *)",
+      "WebFetch(domain:friendlydentist.haionline.ro)",
+      "Bash(rtk wc *)"
+    ]
+  }
+}

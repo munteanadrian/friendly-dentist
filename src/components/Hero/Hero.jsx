@@ -22,6 +22,7 @@ export default function Hero() {
           </div>
           <div className={styles.cta}>
             <a href="#contact" className={styles.ctaBtn} onClick={() => trackEvent('cta_click', { location: 'hero' })}>Programează-te</a>
+            <a href="#prima-vizita" className={styles.ctaSecondary}>Cum decurge vizita →</a>
           </div>
         </div>
       </div>

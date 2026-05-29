@@ -495,3 +495,44 @@
     overflow-y: auto;
   }
 }
+
+/* ── Team CTA ── */
+.teamCta {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-md);
+  padding: var(--space-xl) var(--space-lg);
+  background: var(--color-white);
+  border-radius: 16px;
+  text-align: center;
+}
+
+.teamCtaText {
+  font-family: var(--font-body);
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--color-dark);
+  max-width: 480px;
+  line-height: 1.6;
+}
+
+.teamCtaBtn {
+  display: inline-block;
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-white);
+  background: var(--color-dark);
+  padding: 12px 28px;
+  border-radius: 32px;
+  text-decoration: none;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.teamCtaBtn:hover {
+  opacity: 0.85;
+  transform: translateY(-2px);
+}

@@ -379,6 +379,15 @@ a.infoItem:hover {
   height: 100%;
 }
 
+.formNote {
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 400;
+  color: rgba(238, 238, 238, 0.45);
+  text-align: center;
+  letter-spacing: 0.03em;
+}
+
 /* ── Success state ───────────────────── */
 .success {
   display: flex;

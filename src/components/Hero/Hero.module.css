@@ -167,6 +167,20 @@
   transform: translateY(0);
 }
 
+.ctaSecondary {
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: 0.06em;
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.ctaSecondary:hover {
+  color: var(--color-white);
+}
+
 @media (min-width: 768px) {
   .heroInner {
     transform: translateX(-3vw);
