@@ -15,6 +15,8 @@ const SERVICES = [
       'vrei să îmbunătățești aspectul zâmbetului',
       'ai implanturi care necesită lucrări protetice',
     ],
+    photo: 'https://images.unsplash.com/photo-1606811841689-23dfddce3e66?w=800&q=80&fit=crop',
+    photoAlt: 'Zâmbet frumos după tratament protetic',
     bg: 'light',
   },
   {
@@ -30,6 +32,8 @@ const SERVICES = [
       'dintele a început să se închidă la culoare',
       'ai o carie profundă sau o infecție',
     ],
+    photo: 'https://images.unsplash.com/photo-1579684453423-f84349ef60b0?w=800&q=80&fit=crop',
+    photoAlt: 'Echipament modern de endodonție la microscop',
     bg: 'white',
   },
   {
@@ -45,6 +49,8 @@ const SERVICES = [
       'observi retracție gingivală sau dinți care par mai lungi',
       'ai respirație urât mirositoare persistentă',
     ],
+    photo: 'https://images.unsplash.com/photo-1588776814546-1ffbb172ce0e?w=800&q=80&fit=crop',
+    photoAlt: 'Consultație stomatologică la cabinet',
     bg: 'light',
   },
   {
@@ -60,6 +66,8 @@ const SERVICES = [
       'mușcătura nu e corectă (overbite, underbite, crossbite)',
       'vrei o alternativă invizibilă la aparat dentar clasic',
     ],
+    photo: 'https://images.unsplash.com/photo-1601506521937-0121a7fc2a6b?w=800&q=80&fit=crop',
+    photoAlt: 'Tratament ortodontic cu alinere transparente',
     bg: 'white',
   },
   {
@@ -75,6 +83,8 @@ const SERVICES = [
       'simți o peliculă persistentă pe dinți',
       'vrei să previi problemele înainte să apară',
     ],
+    photo: 'https://images.unsplash.com/photo-1559757175-0eb30cd8c063?w=800&q=80&fit=crop',
+    photoAlt: 'Igienizare profesională și detartraj',
     bg: 'light',
   },
   {
@@ -90,27 +100,16 @@ const SERVICES = [
       'are frică sau anxietate față de stomatolog',
       'are dureri sau pete pe dinți de lapte',
     ],
+    photo: 'https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=800&q=80&fit=crop',
+    photoAlt: 'Copil relaxat la consultație stomatologică',
     bg: 'white',
   },
 ]
 
 function CheckIcon() {
   return (
-    <svg
-      width="12"
-      height="12"
-      viewBox="0 0 12 12"
-      fill="none"
-      aria-hidden="true"
-      focusable="false"
-    >
-      <path
-        d="M2 6.5L4.5 9L10 3"
-        stroke="currentColor"
-        strokeWidth="1.5"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
+    <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true" focusable="false">
+      <path d="M2 6.5L4.5 9L10 3" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
     </svg>
   )
 }
@@ -128,19 +127,12 @@ export default function ServiciiDetailed() {
           }
         })
       },
-      { threshold: 0.1 }
+      { threshold: 0.08 }
     )
 
     const current = sectionRefs.current
-    current.forEach((el) => {
-      if (el) observer.observe(el)
-    })
-
-    return () => {
-      current.forEach((el) => {
-        if (el) observer.unobserve(el)
-      })
-    }
+    current.forEach((el) => { if (el) observer.observe(el) })
+    return () => current.forEach((el) => { if (el) observer.unobserve(el) })
   }, [])
 
   return (
@@ -152,13 +144,11 @@ export default function ServiciiDetailed() {
           ref={(el) => (sectionRefs.current[index] = el)}
           aria-labelledby={`service-title-${service.num}`}
         >
-          <div className={styles.inner}>
+          <div className={`${styles.inner} ${index % 2 !== 0 ? styles.reverse : ''}`}>
+
             <div className={styles.content}>
               <span className={styles.serviceNum}>{service.num}</span>
-              <h2
-                id={`service-title-${service.num}`}
-                className={styles.title}
-              >
+              <h2 id={`service-title-${service.num}`} className={styles.title}>
                 {service.title}
               </h2>
               <span className={styles.tag}>{service.tag}</span>
@@ -174,23 +164,25 @@ export default function ServiciiDetailed() {
                 <ul className={styles.idealList}>
                   {service.ideal.map((item, i) => (
                     <li key={i} className={styles.idealItem}>
-                      <span className={styles.checkIcon}>
-                        <CheckIcon />
-                      </span>
+                      <span className={styles.checkIcon}><CheckIcon /></span>
                       <span>{item}</span>
                     </li>
                   ))}
                 </ul>
               </div>
 
-              <a href="#contact" className={styles.cta}>
-                Programează consultație →
-              </a>
+              <a href="#contact" className={styles.cta}>Programează consultație →</a>
             </div>
 
-            <div className={styles.ghost} aria-hidden="true">
-              {service.num}
+            <div className={styles.photoCol}>
+              <img
+                src={service.photo}
+                alt={service.photoAlt}
+                className={styles.photo}
+                loading="lazy"
+              />
             </div>
+
           </div>
         </section>
       ))}

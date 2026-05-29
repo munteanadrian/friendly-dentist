@@ -1,23 +1,17 @@
 .section {
-  background: var(--color-light-bg);
+  background: var(--color-dark);
   padding: var(--space-3xl) 0;
-  border-top: 1px solid rgba(58, 57, 57, 0.08);
+  text-align: center;
 }
 
 .inner {
-  max-width: var(--max-width);
+  max-width: 720px;
   margin: 0 auto;
   padding: 0 var(--section-padding-h);
   display: flex;
   flex-direction: column;
-  gap: var(--space-2xl);
-}
-
-/* ── Left ── */
-.left {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-sm);
+  align-items: center;
+  gap: 0;
 }
 
 .eyebrow {
@@ -25,145 +19,112 @@
   font-size: 18px;
   font-style: italic;
   font-weight: 400;
-  color: var(--color-btn);
-  margin: 0;
+  color: var(--color-text-on-dark-muted);
+  margin: 0 0 var(--space-md);
+  letter-spacing: 0.02em;
 }
 
 .heading {
   font-family: var(--font-display);
-  font-size: clamp(48px, 6vw, 80px);
+  font-size: clamp(56px, 9vw, 112px);
   font-weight: 400;
   text-transform: uppercase;
-  color: var(--color-dark);
-  line-height: 0.9;
+  color: var(--color-white);
+  line-height: 0.88;
   letter-spacing: -0.02em;
   margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
 }
 
 .script {
   font-family: var(--font-script);
-  font-size: 1.05em;
+  font-size: 1.15em;
   text-transform: none;
-  color: var(--color-btn);
+  color: var(--color-white);
+  letter-spacing: 0;
+  opacity: 0.9;
+  line-height: 0.85;
   display: block;
-  line-height: 1;
-  margin-top: 4px;
 }
 
 .sub {
   font-family: var(--font-body);
   font-size: 15px;
-  line-height: 1.7;
-  color: rgba(58, 57, 57, 0.6);
-  max-width: 340px;
-  margin: 0;
+  line-height: 1.75;
+  color: var(--color-text-on-dark-muted);
+  max-width: 420px;
+  margin: var(--space-lg) 0 0;
 }
 
-/* ── Right ── */
-.right {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-lg);
+.divider {
+  width: 1px;
+  height: 48px;
+  background: rgba(255, 255, 255, 0.2);
+  margin: var(--space-xl) auto;
 }
 
-.phoneBlock {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-  text-decoration: none;
-  padding: var(--space-lg);
-  background: var(--color-white);
-  border-radius: 16px;
-  border: 1px solid rgba(58, 57, 57, 0.1);
-  transition: border-color 0.25s ease, box-shadow 0.25s ease;
-}
-
-.phoneBlock:hover {
-  border-color: rgba(58, 57, 57, 0.25);
-  box-shadow: 0 4px 24px rgba(58, 57, 57, 0.08);
-}
-
-.phoneLabel {
-  font-family: var(--font-body);
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--color-btn);
-}
-
-.phoneNumber {
+.phone {
   font-family: var(--font-display);
-  font-size: clamp(36px, 5vw, 52px);
+  font-size: clamp(32px, 5vw, 52px);
   font-weight: 400;
-  color: var(--color-dark);
-  line-height: 1;
+  color: var(--color-white);
+  text-decoration: none;
   letter-spacing: -0.01em;
+  transition: opacity 0.2s ease;
+  display: block;
+  margin-bottom: var(--space-xl);
 }
 
-.phoneHours {
-  font-family: var(--font-body);
-  font-size: 13px;
-  color: rgba(58, 57, 57, 0.5);
-  margin-top: 2px;
+.phone:hover {
+  opacity: 0.7;
 }
 
-/* ── Actions ── */
 .actions {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  gap: 12px;
+  align-items: center;
+  gap: var(--space-md);
 }
 
 .ctaPrimary {
   display: inline-block;
-  padding: 14px 32px;
-  background: var(--color-dark);
-  color: var(--color-white);
+  padding: 15px 40px;
+  border: 1.5px solid rgba(255, 255, 255, 0.5);
   border-radius: 32px;
   font-family: var(--font-body);
-  font-size: 14px;
-  font-weight: 600;
-  letter-spacing: 0.05em;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-white);
   text-decoration: none;
-  transition: opacity 0.2s ease, transform 0.2s ease;
+  transition: border-color 0.25s ease, background 0.25s ease;
 }
 
 .ctaPrimary:hover {
-  opacity: 0.85;
-  transform: translateY(-2px);
+  border-color: var(--color-white);
+  background: rgba(255, 255, 255, 0.08);
 }
 
 .ctaSecondary {
   font-family: var(--font-body);
   font-size: 14px;
-  color: rgba(58, 57, 57, 0.6);
+  color: var(--color-text-on-dark-muted);
   text-decoration: none;
-  letter-spacing: 0.02em;
   transition: color 0.2s ease;
-  padding: 4px 0;
-  border-bottom: 1px solid rgba(58, 57, 57, 0.2);
+  letter-spacing: 0.02em;
 }
 
 .ctaSecondary:hover {
-  color: var(--color-dark);
-  border-bottom-color: var(--color-dark);
+  color: var(--color-white);
 }
 
-/* ── Desktop ── */
 @media (min-width: 768px) {
-  .inner {
+  .actions {
     flex-direction: row;
-    align-items: center;
-    gap: var(--space-3xl);
-  }
-
-  .left {
-    flex: 1;
-  }
-
-  .right {
-    flex: 1;
+    gap: var(--space-lg);
   }
 }
