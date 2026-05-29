@@ -1,16 +1,22 @@
 .section {
-  background: var(--color-dark);
+  background: var(--color-light-bg);
   padding: var(--space-3xl) 0;
-  text-align: center;
+  border-top: 1px solid rgba(58, 57, 57, 0.07);
 }
 
 .inner {
-  max-width: 720px;
+  max-width: var(--max-width);
   margin: 0 auto;
   padding: 0 var(--section-padding-h);
   display: flex;
   flex-direction: column;
-  align-items: center;
+  gap: var(--space-2xl);
+}
+
+/* ── Left: typographic anchor ── */
+.left {
+  display: flex;
+  flex-direction: column;
   gap: 0;
 }
 
@@ -19,112 +25,133 @@
   font-size: 18px;
   font-style: italic;
   font-weight: 400;
-  color: var(--color-text-on-dark-muted);
-  margin: 0 0 var(--space-md);
-  letter-spacing: 0.02em;
+  color: var(--color-btn);
+  margin: 0 0 var(--space-sm);
+  letter-spacing: 0.01em;
 }
 
 .heading {
   font-family: var(--font-display);
-  font-size: clamp(56px, 9vw, 112px);
+  font-size: clamp(72px, 11vw, 140px);
   font-weight: 400;
   text-transform: uppercase;
-  color: var(--color-white);
-  line-height: 0.88;
-  letter-spacing: -0.02em;
+  color: var(--color-dark);
+  line-height: 0.86;
+  letter-spacing: -0.03em;
   margin: 0;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 0;
 }
 
 .script {
   font-family: var(--font-script);
-  font-size: 1.15em;
+  font-size: 0.78em;
   text-transform: none;
-  color: var(--color-white);
+  color: var(--color-dark);
   letter-spacing: 0;
-  opacity: 0.9;
-  line-height: 0.85;
+  opacity: 0.55;
+  line-height: 0.9;
   display: block;
+}
+
+/* ── Right: details + CTA ── */
+.right {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  justify-content: flex-end;
 }
 
 .sub {
   font-family: var(--font-body);
   font-size: 15px;
   line-height: 1.75;
-  color: var(--color-text-on-dark-muted);
-  max-width: 420px;
-  margin: var(--space-lg) 0 0;
-}
-
-.divider {
-  width: 1px;
-  height: 48px;
-  background: rgba(255, 255, 255, 0.2);
-  margin: var(--space-xl) auto;
+  color: rgba(58, 57, 57, 0.65);
+  max-width: 380px;
+  margin: 0;
 }
 
 .phone {
   font-family: var(--font-display);
-  font-size: clamp(32px, 5vw, 52px);
+  font-size: clamp(34px, 4.5vw, 52px);
   font-weight: 400;
-  color: var(--color-white);
+  color: var(--color-dark);
   text-decoration: none;
   letter-spacing: -0.01em;
-  transition: opacity 0.2s ease;
+  line-height: 1;
   display: block;
-  margin-bottom: var(--space-xl);
+  transition: opacity 0.2s ease;
 }
 
 .phone:hover {
-  opacity: 0.7;
+  opacity: 0.6;
+}
+
+.hours {
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 400;
+  color: rgba(58, 57, 57, 0.45);
+  letter-spacing: 0.04em;
+  margin: -8px 0 0;
 }
 
 .actions {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: var(--space-md);
+  align-items: flex-start;
+  gap: 14px;
+  margin-top: var(--space-xs);
 }
 
 .ctaPrimary {
   display: inline-block;
-  padding: 15px 40px;
-  border: 1.5px solid rgba(255, 255, 255, 0.5);
+  padding: 13px 32px;
+  background: var(--color-dark);
+  color: var(--color-white);
   border-radius: 32px;
   font-family: var(--font-body);
   font-size: 13px;
   font-weight: 500;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--color-white);
   text-decoration: none;
-  transition: border-color 0.25s ease, background 0.25s ease;
+  transition: opacity 0.2s ease, transform 0.2s ease;
 }
 
 .ctaPrimary:hover {
-  border-color: var(--color-white);
-  background: rgba(255, 255, 255, 0.08);
+  opacity: 0.82;
+  transform: translateY(-1px);
 }
 
 .ctaSecondary {
   font-family: var(--font-body);
   font-size: 14px;
-  color: var(--color-text-on-dark-muted);
+  color: rgba(58, 57, 57, 0.55);
   text-decoration: none;
+  letter-spacing: 0.01em;
   transition: color 0.2s ease;
-  letter-spacing: 0.02em;
 }
 
 .ctaSecondary:hover {
-  color: var(--color-white);
+  color: var(--color-dark);
 }
 
+/* ── Desktop: two-column ── */
 @media (min-width: 768px) {
-  .actions {
+  .inner {
     flex-direction: row;
-    gap: var(--space-lg);
+    align-items: flex-end;
+    gap: var(--space-3xl);
+  }
+
+  .left {
+    flex: 1 1 50%;
+  }
+
+  .right {
+    flex: 0 0 auto;
+    min-width: 300px;
+    padding-bottom: 6px;
   }
 }
