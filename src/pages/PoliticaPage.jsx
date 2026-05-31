@@ -14,8 +14,10 @@ export default function PoliticaPage() {
           <div className={styles.section}>
             <h2>1. Operatorul de date</h2>
             <p>
-              Datele tale personale sunt prelucrate de <strong>Friendly Dentist</strong>, cabinet
-              stomatologic cu sediul la Str. Cezar Bolliac 66, București, România.
+              Datele tale personale sunt prelucrate de <strong>STATIGE DENTAL SRL</strong>, persoană
+              juridică română, CUI 42639302, cu sediul social în Jud. Olt, Municipiul Slatina, Strada
+              Crișan Nr. 11, Bloc ZA1, Scara 6, Etaj 1, Ap. 3, ce operează cabinetul stomatologic
+              Friendly Dentist la adresa Str. Cezar Bolliac 66, București.
             </p>
             <p>
               Contact: <a href="mailto:contact@friendlydentist.ro">contact@friendlydentist.ro</a> ·{' '}

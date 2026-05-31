@@ -15,8 +15,10 @@ export default function TermeniPage() {
             <h2>1. Informații generale</h2>
             <p>
               Prezentul site web, disponibil la adresa <strong>friendlydentist.ro</strong>, este operat de
-              cabinetul stomatologic <strong>Friendly Dentist</strong>, cu sediul la Str. Cezar Bolliac 66,
-              București, România (denumit în continuare „Operatorul" sau „noi").
+              <strong> STATIGE DENTAL SRL</strong>, persoană juridică română, CUI 42639302, cu sediul
+              social în Jud. Olt, Municipiul Slatina, Strada Crișan Nr. 11, Bloc ZA1, Scara 6, Etaj 1,
+              Ap. 3, ce operează cabinetul stomatologic Friendly Dentist la adresa Str. Cezar Bolliac 66,
+              București (denumită în continuare „Operatorul" sau „noi").
             </p>
             <p>
               Prin accesarea și utilizarea acestui site, ești de acord cu prezentele Termeni și Condiții.

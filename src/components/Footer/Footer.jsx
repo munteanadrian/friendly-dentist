@@ -73,7 +73,7 @@ export default function Footer() {
         </div>
 
         <div className={styles.bottom}>
-          <p className={styles.copyright}>© {new Date().getFullYear()} Friendly Dentist. Toate drepturile rezervate.</p>
+          <p className={styles.copyright}>© {new Date().getFullYear()} Friendly Dentist · STATIGE DENTAL SRL · CUI 42639302</p>
           <div className={styles.legalLinks}>
             <Link to="/termeni-si-conditii" className={styles.legalLink}>Termeni și Condiții</Link>
             <span className={styles.separator}>·</span>
