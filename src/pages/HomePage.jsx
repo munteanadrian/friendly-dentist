@@ -5,7 +5,6 @@ import PrimaVizita from '../components/PrimaVizita/PrimaVizita.jsx'
 import Echipa from '../components/Echipa/Echipa.jsx'
 import Recenzii from '../components/Recenzii/Recenzii.jsx'
 import FAQ from '../components/FAQ/FAQ.jsx'
-import CTA from '../components/CTA/CTA.jsx'
 import Contact from '../components/Contact/Contact.jsx'
 import Footer from '../components/Footer/Footer.jsx'
 import WhatsApp from '../components/WhatsApp/WhatsApp.jsx'
@@ -21,7 +20,6 @@ export default function HomePage() {
         <Echipa />
         <Recenzii />
         <FAQ />
-        <CTA />
         <Contact />
       </main>
       <Footer />

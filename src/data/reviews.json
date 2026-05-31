@@ -1,0 +1,38 @@
+{
+  "rating": 5,
+  "total": 96,
+  "placeUrl": "https://www.google.com/maps/place/?q=place_id:ChIJj1l5HoL_sUAR9BXf0CmB2_0",
+  "reviewUrl": "https://search.google.com/local/writereview?placeid=ChIJj1l5HoL_sUAR9BXf0CmB2_0",
+  "reviews": [
+    {
+      "author_name": "Cristina Neagu",
+      "rating": 5,
+      "text": "Recomand cu încredere Friendly Dentist! Personal profesionist și foarte amabil, atmosferă plăcută și servicii de calitate. M-am simțit chiar relaxată  în cabinet. Cu siguranță voi reveni!",
+      "relative_time_description": "acum 3 luni"
+    },
+    {
+      "author_name": "Civan Șimșek",
+      "rating": 5,
+      "text": "Scriu acest review in urma vizitei mele la cabinet si ofer 5 Stele datorita Domnului Doctor Alexandru Odor, un tanar foarte perspicace si indemanatic, care a lucrat cu mare grija si seriozitate, dar care a avut si un caracter deschis fata de mine. Doresc sa mai mentionez ca manevreaza instrumentele cu acuratete maxima si ca mi-a explicat toate etapele, in detaliu, in timpul procedurilor medicale, ceea ce m-a facut sa ma simt in siguranta.\nRECOMAND CU INCREDERE pe Domnul Doctor ODOR ALEXANDRU!!",
+      "relative_time_description": "acum 3 luni"
+    },
+    {
+      "author_name": "Diana Fratila",
+      "rating": 5,
+      "text": "Cea mai buna alegere! Esti intampinat cu profesionalism si o atitudine “ Friendly” 😃, asa cum spune si numele cabinetului. Cu siguranta o sa revin. Doamna doctor Mihaela a demonstrat cunostintele medicale solide, aplicate cu pasiune si o grija profunda fata de pacient.",
+      "relative_time_description": "acum 3 luni"
+    },
+    {
+      "author_name": "MD Mihaela",
+      "rating": 5,
+      "text": "Am ales să merg la Clinica Dentală unde lucrează doamna doctor Mihaela Stanculete , iar experiența mea a fost excelentă. Tot procesul, de la consult, explicații, plan de tratament și până la intervențiile efective, s-a desfășurat cu profesionalism și multă grijă.\nDoamna doctor are o abordare calmă, empatică și explică fiecare pas pe înțelesul pacientului, lucru care m-a făcut să mă simt în siguranță și bine informată. Rezultatul tratamentului este peste aşteptările mele, atât ca estetică, cât și ca confort.\n\nRecomand cu încredere!",
+      "relative_time_description": "acum 6 luni"
+    },
+    {
+      "author_name": "Denisa Radu",
+      "rating": 5,
+      "text": "O experiență foarte bună! Deși eu am mers cu frică inițial, tot tratamentul a mers foarte bine și fără durere. Plus ca odată ce interacționezi cu doamna doctor înțelegi în mod direct numele clinicii friendly ☺️ recomand cu încredere!",
+      "relative_time_description": "acum 3 luni"
+    }
+  ]
+}

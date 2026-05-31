@@ -1,10 +1,16 @@
-import styles from './RecenziiStats.module.css';
+import styles from './RecenziiStats.module.css'
+import reviewsData from '../../data/reviews.json'
+
+const ratingStr = `${reviewsData.rating.toFixed(1)}★`
+const totalStr = reviewsData.total >= 100
+  ? `${Math.floor(reviewsData.total / 100) * 100}+`
+  : `${reviewsData.total}`
 
 const stats = [
-  { value: '4.9★', label: 'rating mediu Google' },
-  { value: '200+', label: 'pacienți fericiți' },
+  { value: ratingStr, label: 'rating mediu Google' },
+  { value: totalStr, label: 'recenzii Google' },
   { value: '5', label: 'specialiști dedicați' },
-];
+]
 
 export default function RecenziiStats() {
   return (

@@ -1,99 +1,94 @@
 .section {
-  background: var(--color-light-bg);
-  padding: var(--space-3xl) 0;
+  background: var(--color-white);
+  padding: var(--space-2xl) var(--section-padding-h);
   border-top: 1px solid rgba(58, 57, 57, 0.07);
 }
 
 .inner {
   max-width: var(--max-width);
   margin: 0 auto;
-  padding: 0 var(--section-padding-h);
   display: flex;
   flex-direction: column;
-  gap: var(--space-2xl);
+  gap: var(--space-xl);
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.85s ease, transform 0.85s ease;
 }
 
-/* ── Left: typographic anchor ── */
+.inner.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── Left ── */
 .left {
   display: flex;
   flex-direction: column;
-  gap: 0;
+  gap: var(--space-sm);
 }
 
-.eyebrow {
-  font-family: var(--font-display);
-  font-size: 18px;
-  font-style: italic;
-  font-weight: 400;
+.label {
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
   color: var(--color-btn);
-  margin: 0 0 var(--space-sm);
-  letter-spacing: 0.01em;
+  margin: 0;
 }
 
 .heading {
   font-family: var(--font-display);
-  font-size: clamp(72px, 11vw, 140px);
+  font-size: clamp(44px, 6vw, 80px);
   font-weight: 400;
-  text-transform: uppercase;
+  font-style: italic;
   color: var(--color-dark);
-  line-height: 0.86;
-  letter-spacing: -0.03em;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
   margin: 0;
-  display: flex;
-  flex-direction: column;
 }
 
-.script {
-  font-family: var(--font-script);
-  font-size: 0.78em;
-  text-transform: none;
-  color: var(--color-dark);
-  letter-spacing: 0;
-  opacity: 0.55;
-  line-height: 0.9;
-  display: block;
-}
-
-/* ── Right: details + CTA ── */
+/* ── Right ── */
 .right {
   display: flex;
   flex-direction: column;
-  gap: var(--space-md);
-  justify-content: flex-end;
+  gap: var(--space-lg);
 }
 
-.sub {
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.item {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-md);
+}
+
+.num {
+  font-family: var(--font-display);
+  font-size: 13px;
+  font-weight: 400;
+  color: rgba(58, 57, 57, 0.3);
+  letter-spacing: 0.04em;
+  flex-shrink: 0;
+  padding-top: 2px;
+}
+
+.text {
   font-family: var(--font-body);
   font-size: 15px;
-  line-height: 1.75;
-  color: rgba(58, 57, 57, 0.65);
-  max-width: 380px;
-  margin: 0;
+  font-weight: 300;
+  line-height: 1.65;
+  color: rgba(58, 57, 57, 0.75);
 }
 
-.phone {
-  font-family: var(--font-display);
-  font-size: clamp(34px, 4.5vw, 52px);
-  font-weight: 400;
-  color: var(--color-dark);
-  text-decoration: none;
-  letter-spacing: -0.01em;
-  line-height: 1;
-  display: block;
-  transition: opacity 0.2s ease;
-}
-
-.phone:hover {
-  opacity: 0.6;
-}
-
-.hours {
-  font-family: var(--font-body);
-  font-size: 12px;
-  font-weight: 400;
-  color: rgba(58, 57, 57, 0.45);
-  letter-spacing: 0.04em;
-  margin: -8px 0 0;
+.rule {
+  width: 36px;
+  height: 1px;
+  background: rgba(58, 57, 57, 0.15);
 }
 
 .actions {
@@ -101,57 +96,56 @@
   flex-direction: column;
   align-items: flex-start;
   gap: 14px;
-  margin-top: var(--space-xs);
 }
 
 .ctaPrimary {
   display: inline-block;
-  padding: 13px 32px;
+  padding: 13px 36px;
   background: var(--color-dark);
   color: var(--color-white);
   border-radius: 32px;
   font-family: var(--font-body);
   font-size: 13px;
   font-weight: 500;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
   text-decoration: none;
   transition: opacity 0.2s ease, transform 0.2s ease;
 }
 
 .ctaPrimary:hover {
-  opacity: 0.82;
-  transform: translateY(-1px);
+  opacity: 0.78;
+  transform: translateY(-2px);
 }
 
-.ctaSecondary {
+.ctaPhone {
   font-family: var(--font-body);
-  font-size: 14px;
-  color: rgba(58, 57, 57, 0.55);
+  font-size: 13px;
+  font-weight: 400;
+  color: rgba(58, 57, 57, 0.5);
   text-decoration: none;
   letter-spacing: 0.01em;
   transition: color 0.2s ease;
 }
 
-.ctaSecondary:hover {
+.ctaPhone:hover {
   color: var(--color-dark);
 }
 
-/* ── Desktop: two-column ── */
+/* ── Desktop ── */
 @media (min-width: 768px) {
   .inner {
     flex-direction: row;
-    align-items: flex-end;
+    align-items: center;
     gap: var(--space-3xl);
   }
 
   .left {
-    flex: 1 1 50%;
+    flex: 0 0 auto;
+    max-width: 380px;
   }
 
   .right {
-    flex: 0 0 auto;
-    min-width: 300px;
-    padding-bottom: 6px;
+    flex: 1;
   }
 }

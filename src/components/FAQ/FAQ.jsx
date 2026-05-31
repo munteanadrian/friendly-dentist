@@ -24,7 +24,7 @@ const ITEMS = [
   },
   {
     q: 'Acceptați CNAS sau asigurări private?',
-    a: 'Da! Lucrăm cu CNAS și cu principalele asigurări private din România. Sună-ne și verificăm împreună exact ce se acoperă în cazul tău.',
+    a: 'Nu lucrăm cu CNAS. Suntem o clinică privată, iar toate serviciile sunt contra cost. Prețurile sunt transparente și îți comunicăm costurile înainte de orice procedură.',
   },
 ]
 

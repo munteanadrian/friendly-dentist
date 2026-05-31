@@ -12,13 +12,13 @@
   gap: var(--space-xl);
 }
 
+/* ── Header (homepage only) ── */
 .header {
   text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: var(--space-sm);
-
   opacity: 0;
   transform: translateY(24px);
   transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
@@ -48,28 +48,28 @@
   line-height: 1.1;
 }
 
-/* Cards */
+/* ── Grid ── */
 .grid {
   display: grid;
   grid-template-columns: 1fr;
   gap: var(--space-sm);
 }
 
+/* ── Card ── */
 .card {
   background: var(--color-white);
   border: 1px solid rgba(58, 57, 57, 0.09);
   border-radius: 16px;
-  padding: var(--space-md) var(--space-md) var(--space-lg);
+  padding: var(--space-md);
   display: flex;
   flex-direction: column;
   gap: var(--space-md);
-  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.05);
-
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.04);
   opacity: 0;
   transform: translateY(20px);
   transition: opacity 0.5s cubic-bezier(0.22, 1, 0.36, 1),
               transform 0.5s cubic-bezier(0.22, 1, 0.36, 1),
-              box-shadow 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+              box-shadow 0.25s ease;
 }
 
 .card.visible {
@@ -78,41 +78,34 @@
 }
 
 .card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.09);
+  transform: translateY(-3px);
 }
 
-.stars {
-  font-size: 18px;
-  color: #E8A838;
-  letter-spacing: 2px;
-}
-
-.quote {
-  font-family: var(--font-body);
-  font-size: 15px;
-  line-height: 1.7;
-  color: var(--color-dark);
-  opacity: 0.8;
-  flex: 1;
-}
-
-.reviewer {
+/* ── Card header: reviewer left, meta right ── */
+.cardHeader {
   display: flex;
+  justify-content: space-between;
   align-items: center;
   gap: var(--space-sm);
-  margin-top: auto;
+}
+
+.reviewerInfo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
 }
 
 .avatar {
-  width: 40px;
-  height: 40px;
+  width: 38px;
+  height: 38px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   font-family: var(--font-display);
-  font-size: 18px;
+  font-size: 17px;
   font-weight: 400;
   color: var(--color-dark);
   flex-shrink: 0;
@@ -123,16 +116,52 @@
   font-size: 14px;
   font-weight: 600;
   color: var(--color-dark);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .reviewerLabel {
   font-family: var(--font-body);
-  font-size: 13px;
-  color: var(--color-dark);
-  opacity: 0.55;
+  font-size: 11px;
+  color: rgba(58, 57, 57, 0.5);
+  margin-top: 1px;
+  white-space: nowrap;
 }
 
-/* CTA */
+.cardMeta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 3px;
+  flex-shrink: 0;
+}
+
+.stars {
+  font-size: 13px;
+  color: #E8A838;
+  letter-spacing: 1px;
+  line-height: 1;
+}
+
+.time {
+  font-family: var(--font-body);
+  font-size: 11px;
+  color: rgba(58, 57, 57, 0.4);
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+}
+
+/* ── Quote ── */
+.quote {
+  font-family: var(--font-body);
+  font-size: 14px;
+  line-height: 1.7;
+  color: rgba(58, 57, 57, 0.78);
+  flex: 1;
+}
+
+/* ── CTA ── */
 .ctaWrap {
   display: flex;
   justify-content: center;
@@ -141,24 +170,92 @@
 .googleBtn {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
-  padding: 12px 28px;
-  border: 1.5px solid rgba(58, 57, 57, 0.25);
+  gap: 8px;
+  padding: 11px 26px;
+  border: 1.5px solid rgba(58, 57, 57, 0.2);
   border-radius: 32px;
   font-family: var(--font-body);
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 500;
   color: var(--color-dark);
   transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .googleBtn:hover {
-  border-color: rgba(58, 57, 57, 0.5);
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+  border-color: rgba(58, 57, 57, 0.45);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.07);
 }
 
+/* ── Full variant (reviews page) ── */
+.sectionFull {
+  padding-top: var(--space-xl);
+}
+
+.sectionFull .inner {
+  max-width: 1320px;
+}
+
+.gridFull {
+  gap: var(--space-md);
+}
+
+.cardFull {
+  padding: var(--space-lg);
+  height: 360px;
+}
+
+.cardFull .quote {
+  font-size: 15px;
+  line-height: 1.8;
+  overflow-y: auto;
+  flex: 1;
+  min-height: 0;
+  padding-right: 6px;
+}
+
+.cardFull .quote {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.cardFull .quote::-webkit-scrollbar {
+  display: none;
+}
+.cardFull:hover .quote {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(58, 57, 57, 0.2) transparent;
+}
+.cardFull:hover .quote::-webkit-scrollbar {
+  display: block;
+  width: 3px;
+}
+.cardFull:hover .quote::-webkit-scrollbar-track {
+  background: transparent;
+}
+.cardFull:hover .quote::-webkit-scrollbar-thumb {
+  background: rgba(58, 57, 57, 0.2);
+  border-radius: 2px;
+}
+
+/* ── Responsive ── */
 @media (min-width: 768px) {
   .grid {
     grid-template-columns: repeat(3, 1fr);
+  }
+
+  /* 6-col subgrid: each card spans 2 cols = 3 cards per row */
+  .gridFull {
+    grid-template-columns: repeat(6, 1fr);
+  }
+
+  .gridFull .cardFull {
+    grid-column: span 2;
+  }
+
+  /* When there are exactly 5 reviews, center the 2 orphan cards in row 2 */
+  .gridFull .cardFull:nth-child(4):nth-last-child(2) {
+    grid-column: 2 / span 2;
+  }
+  .gridFull .cardFull:nth-child(5):last-child {
+    grid-column: 4 / span 2;
   }
 }

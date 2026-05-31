@@ -33,6 +33,9 @@ src/
   App.jsx
   main.jsx
 
+## Workflow rules
+- Do NOT invoke /run silently — ask first if you think it's needed, then wait for approval
+
 ## Rules
 - All colors, fonts, spacing via CSS custom properties — 
   never hardcode hex values in component CSS
