@@ -53,6 +53,7 @@ export default function Footer() {
             <p className={styles.colHeading}>Program & Contact</p>
             <div className={styles.contactInfo}>
               <a href="tel:+40743169796" className={styles.contactLinePhone}>0743 169 796</a>
+              <a href="mailto:contact@friendlydentist.ro" className={styles.contactLine}>contact@friendlydentist.ro</a>
               <p className={styles.contactLine}>Str. Cezar Bolliac 66, București</p>
               <div className={styles.hours}>
                 <p className={styles.contactLine}>Luni–Vineri: 9:00–21:00</p>
@@ -74,9 +75,11 @@ export default function Footer() {
         <div className={styles.bottom}>
           <p className={styles.copyright}>© {new Date().getFullYear()} Friendly Dentist. Toate drepturile rezervate.</p>
           <div className={styles.legalLinks}>
-            <a href="#" className={styles.legalLink}>Termeni și Condiții</a>
+            <Link to="/termeni-si-conditii" className={styles.legalLink}>Termeni și Condiții</Link>
             <span className={styles.separator}>·</span>
-            <a href="#" className={styles.legalLink}>Politica de Confidențialitate</a>
+            <Link to="/politica-de-confidentialitate" className={styles.legalLink}>Politica de Confidențialitate</Link>
+            <span className={styles.separator}>·</span>
+            <a href="https://www.catalyst36.com" target="_blank" rel="noopener noreferrer" className={styles.legalLink}>Site realizat de Catalyst36</a>
           </div>
         </div>
       </div>

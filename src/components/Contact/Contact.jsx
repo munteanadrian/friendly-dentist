@@ -22,6 +22,13 @@ const PhoneIcon = () => (
   </svg>
 )
 
+const EmailIcon = () => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+    <polyline points="22,6 12,13 2,6"/>
+  </svg>
+)
+
 const PinIcon = () => (
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
     <path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0118 0z"/>
@@ -114,6 +121,16 @@ export default function Contact() {
             <div className={styles.infoTexts}>
               <p className={styles.infoLabel}>Telefon</p>
               <p className={styles.infoValue}>0743 169 796</p>
+            </div>
+          </a>
+
+          <div className={styles.infoDivider} />
+
+          <a href="mailto:contact@friendlydentist.ro" className={styles.infoItem}>
+            <div className={styles.infoIcon}><EmailIcon /></div>
+            <div className={styles.infoTexts}>
+              <p className={styles.infoLabel}>Email</p>
+              <p className={styles.infoValue}>contact@friendlydentist.ro</p>
             </div>
           </a>
 

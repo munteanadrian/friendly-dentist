@@ -8,6 +8,8 @@ import EchipaPage from './pages/EchipaPage'
 import RecenziiPage from './pages/RecenziiPage'
 import FAQPage from './pages/FAQPage'
 import ContactPage from './pages/ContactPage'
+import TermeniPage from './pages/TermeniPage'
+import PoliticaPage from './pages/PoliticaPage'
 
 export default function App() {
   return (
@@ -22,6 +24,8 @@ export default function App() {
       <Route path="/recenzii" element={<RecenziiPage />} />
       <Route path="/faq" element={<FAQPage />} />
       <Route path="/contact" element={<ContactPage />} />
+      <Route path="/termeni-si-conditii" element={<TermeniPage />} />
+      <Route path="/politica-de-confidentialitate" element={<PoliticaPage />} />
     </Routes>
     </>
   )
