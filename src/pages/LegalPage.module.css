@@ -1,15 +1,12 @@
 .page {
   background: var(--color-white);
   min-height: 60vh;
-  padding: var(--space-3xl) var(--section-padding-h);
+  padding: calc(var(--space-3xl) + 80px) var(--section-padding-h) var(--space-3xl);
 }
 
 .inner {
   max-width: 720px;
   margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-md);
 }
 
 .title {
@@ -18,24 +15,81 @@
   font-weight: 400;
   color: var(--color-dark);
   line-height: 1.05;
+  margin-bottom: var(--space-sm);
 }
 
 .updated {
   font-family: var(--font-body);
   font-size: 13px;
   color: rgba(58, 57, 57, 0.45);
-  margin: 0;
+  margin: 0 0 var(--space-xl);
+  padding-bottom: var(--space-xl);
+  border-bottom: 1px solid rgba(58, 57, 57, 0.1);
 }
 
-.placeholder {
+.section {
+  margin-bottom: var(--space-xl);
+}
+
+.section h2 {
+  font-family: var(--font-display);
+  font-size: clamp(22px, 3vw, 30px);
+  font-weight: 400;
+  color: var(--color-dark);
+  margin-bottom: var(--space-sm);
+  line-height: 1.2;
+}
+
+.section h3 {
   font-family: var(--font-body);
-  font-size: 16px;
-  line-height: 1.7;
-  color: rgba(58, 57, 57, 0.75);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-dark);
+  margin: var(--space-md) 0 var(--space-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
 }
 
-.placeholder a {
+.section p {
+  font-family: var(--font-body);
+  font-size: 15px;
+  line-height: 1.8;
+  color: rgba(58, 57, 57, 0.8);
+  margin-bottom: var(--space-sm);
+}
+
+.section ul,
+.section ol {
+  font-family: var(--font-body);
+  font-size: 15px;
+  line-height: 1.8;
+  color: rgba(58, 57, 57, 0.8);
+  padding-left: 1.4em;
+  margin-bottom: var(--space-sm);
+}
+
+.section li {
+  margin-bottom: 6px;
+}
+
+.section a {
   color: var(--color-dark);
   text-decoration: underline;
   text-underline-offset: 3px;
+}
+
+.section a:hover {
+  opacity: 0.7;
+}
+
+.highlight {
+  background: rgba(58, 57, 57, 0.04);
+  border-left: 3px solid rgba(58, 57, 57, 0.15);
+  padding: var(--space-md);
+  border-radius: 0 8px 8px 0;
+  margin-bottom: var(--space-sm);
+}
+
+.highlight p {
+  margin-bottom: 0;
 }
