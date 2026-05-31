@@ -93,6 +93,8 @@ export default function EchipaGrid() {
                   alt={doctor.name}
                   className={styles.photo}
                   loading="lazy"
+                  width="466"
+                  height="700"
                 />
               </div>
               <div className={styles.details}>

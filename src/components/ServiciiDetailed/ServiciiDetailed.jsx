@@ -180,6 +180,8 @@ export default function ServiciiDetailed() {
                 alt={service.photoAlt}
                 className={styles.photo}
                 loading="lazy"
+                width="1200"
+                height="800"
               />
             </div>
 

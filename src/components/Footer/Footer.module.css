@@ -219,6 +219,43 @@
   font-size: 13px;
 }
 
+/* Catalyst36 wordmark */
+.catalyst36Link {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0;
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+  opacity: 0.7;
+}
+
+.catalyst36Link:hover {
+  opacity: 1;
+}
+
+.catalyst36Pre {
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.55);
+  margin-right: 4px;
+}
+
+.catalyst36Catalyst {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: -0.02em;
+  color: #EDEAE4;
+}
+
+.catalyst36Num {
+  font-family: 'DM Mono', monospace;
+  font-weight: 500;
+  font-size: 11px;
+  color: #F0A416;
+}
+
 /* Tablet and up: 3-col */
 @media (min-width: 768px) {
   .cols {

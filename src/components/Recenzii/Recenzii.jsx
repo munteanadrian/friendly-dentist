@@ -122,7 +122,7 @@ export default function Recenzii({ variant = 'compact' }) {
 
         <div className={styles.ctaWrap}>
           <a
-            href={isFull ? reviewsData.reviewUrl : reviewsData.placeUrl}
+            href={reviewsData.reviewUrl}
             target="_blank"
             rel="noopener noreferrer"
             className={styles.googleBtn}

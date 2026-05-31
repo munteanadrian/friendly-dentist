@@ -11,7 +11,17 @@ export default function Hero() {
         className={styles.parallaxBg}
         style={{ transform: `translate3d(0, ${offset}px, 0)` }}
         aria-hidden="true"
-      />
+      >
+        <img
+          src="/cover-fara-text.webp"
+          alt=""
+          className={styles.parallaxImg}
+          fetchPriority="high"
+          decoding="async"
+          width="1920"
+          height="1080"
+        />
+      </div>
       <div className={styles.overlay} aria-hidden="true" />
       <div className={styles.content}>
         <div className={styles.heroInner}>

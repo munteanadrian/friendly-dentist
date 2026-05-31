@@ -40,7 +40,7 @@ export default function Nav() {
     <nav className={`${styles.nav} ${(atTop && !forcedOpaque) ? styles.transparent : styles.opaque}`} aria-label="Navigație principală">
       <div className={styles.inner}>
         <Link to="/" className={styles.logo} aria-label="Friendly Dentist — acasă">
-          <img src="/logo.webp" alt="Friendly Dentist" className={styles.logoImg} />
+          <img src="/logo.webp" alt="Friendly Dentist" className={styles.logoImg} width="200" height="200" />
         </Link>
 
         <ul className={styles.links} role="list">

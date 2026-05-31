@@ -12,17 +12,25 @@
 .parallaxBg {
   position: absolute;
   inset: 0;
-  background-image: url('/cover-fara-text.webp');
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: 72% center;
   will-change: transform;
+  overflow: hidden;
+}
+
+.parallaxImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 72% center;
+  display: block;
 }
 
 @media (min-width: 768px) {
   .parallaxBg {
     inset: -12% 0;
-    background-position: 65% center;
+  }
+
+  .parallaxImg {
+    object-position: 65% center;
   }
 }
 

@@ -50,9 +50,17 @@
 
 /* ── Grid ── */
 .grid {
-  display: grid;
-  grid-template-columns: 1fr;
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
   gap: var(--space-sm);
+  scrollbar-width: none;
+  padding-bottom: 4px;
+}
+
+.grid::-webkit-scrollbar {
+  display: none;
 }
 
 /* ── Card ── */
@@ -70,6 +78,8 @@
   transition: opacity 0.5s cubic-bezier(0.22, 1, 0.36, 1),
               transform 0.5s cubic-bezier(0.22, 1, 0.36, 1),
               box-shadow 0.25s ease;
+  flex: 0 0 min(300px, 82vw);
+  scroll-snap-align: start;
 }
 
 .card.visible {
@@ -239,7 +249,14 @@
 /* ── Responsive ── */
 @media (min-width: 768px) {
   .grid {
+    display: grid;
     grid-template-columns: repeat(3, 1fr);
+    overflow-x: visible;
+  }
+
+  .card {
+    flex: unset;
+    scroll-snap-align: unset;
   }
 
   /* 6-col subgrid: each card spans 2 cols = 3 cards per row */

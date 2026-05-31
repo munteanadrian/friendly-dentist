@@ -157,7 +157,7 @@ export default function Echipa() {
                 onKeyDown={(e) => e.key === 'Enter' && setActiveDoctor(doc)}
               >
                 <div className={styles.photoWrap}>
-                  <img src={doc.photo} alt={doc.name} className={styles.photo} loading="lazy" />
+                  <img src={doc.photo} alt={doc.name} className={styles.photo} loading="lazy" width="466" height="700" />
                   <div className={styles.cardOverlay} aria-hidden="true">
                     <span className={styles.viewMore}>Vezi profil →</span>
                   </div>
@@ -230,7 +230,7 @@ export default function Echipa() {
             </button>
 
             <div className={styles.modalPhoto}>
-              <img src={activeDoctor.photo} alt={activeDoctor.name} />
+              <img src={activeDoctor.photo} alt={activeDoctor.name} width="466" height="700" />
             </div>
 
             <div className={styles.modalInfo}>

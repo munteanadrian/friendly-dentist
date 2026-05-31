@@ -32,7 +32,7 @@ export default function Footer() {
           
           <div className={styles.brandCol}>
             <Link to="/" className={styles.logoLink} aria-label="Friendly Dentist — acasă">
-              <img src="/logo.webp" alt="Friendly Dentist Logo" className={styles.logoImg} />
+              <img src="/logo.webp" alt="Friendly Dentist Logo" className={styles.logoImg} width="200" height="200" />
             </Link>
             <p className={styles.tagline}>Se poate și <span className={styles.cursive}>altfel</span>.</p>
             <p className={styles.description}>O clinică dentară de familie din București, unde zâmbetele se construiesc cu răbdare, empatie și multă grijă.</p>
@@ -79,7 +79,10 @@ export default function Footer() {
             <span className={styles.separator}>·</span>
             <Link to="/politica-de-confidentialitate" className={styles.legalLink}>Politica de Confidențialitate</Link>
             <span className={styles.separator}>·</span>
-            <a href="https://www.catalyst36.com" target="_blank" rel="noopener noreferrer" className={styles.legalLink}>Site realizat de Catalyst36</a>
+            <a href="https://www.catalyst36.com" target="_blank" rel="noopener noreferrer" className={styles.catalyst36Link} aria-label="Site realizat de Catalyst36">
+              <span className={styles.catalyst36Pre}>Site realizat de </span>
+              <span className={styles.catalyst36Catalyst}>Catalyst</span><span className={styles.catalyst36Num}>36</span>
+            </a>
           </div>
         </div>
       </div>
