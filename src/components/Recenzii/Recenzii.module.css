@@ -56,7 +56,7 @@
   -webkit-overflow-scrolling: touch;
   gap: var(--space-sm);
   scrollbar-width: none;
-  padding-bottom: 4px;
+  padding: 6px 2px 12px;
 }
 
 .grid::-webkit-scrollbar {
@@ -87,9 +87,11 @@
   transform: translateY(0);
 }
 
-.card:hover {
-  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.09);
-  transform: translateY(-3px);
+@media (hover: hover) {
+  .card:hover {
+    box-shadow: 0 8px 28px rgba(0, 0, 0, 0.09);
+    transform: translateY(-3px);
+  }
 }
 
 /* ── Card header: reviewer left, meta right ── */
