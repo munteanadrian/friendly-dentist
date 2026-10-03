@@ -42,8 +42,8 @@
     <!-- Hero image preload (LCP) -->
     <link rel="preload" as="image" href="/cover-fara-text.webp" type="image/webp" fetchpriority="high" />
 
-    <!-- Google Analytics 4 -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-JNJ9G321SV"></script>
+    <!-- Google tag (gtag.js) — one loader, two GA4 properties -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-0260YG6EV8"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
@@ -55,8 +55,26 @@
         analytics_storage: 'denied'
       });
       gtag('js', new Date());
+      gtag('config', 'G-0260YG6EV8', { send_page_view: false });
       gtag('config', 'G-JNJ9G321SV', { send_page_view: false });
     </script>
+
+    <!-- Meta Pixel Code -->
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    // GDPR: hold all events until the visitor accepts cookies (see grantConsent)
+    fbq('consent', 'revoke');
+    fbq('init', '2105548916733142');
+    fbq('track', 'PageView');
+    </script>
+    <!-- End Meta Pixel Code -->
 
     <!-- Local business schema -->
     <script type="application/ld+json">

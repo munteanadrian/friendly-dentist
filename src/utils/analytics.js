@@ -1,5 +1,5 @@
-// Replace these two IDs before going live
-const GA4_ID = 'G-JNJ9G321SV'
+// Replace these IDs before going live
+const GA4_IDS = ['G-0260YG6EV8', 'G-JNJ9G321SV']
 const CLARITY_ID = 'wpluxr6zkz'
 
 export const trackEvent = (name, params = {}) => {
@@ -11,7 +11,10 @@ export const trackEvent = (name, params = {}) => {
 export const grantConsent = () => {
   if (typeof window.gtag === 'function') {
     window.gtag('consent', 'update', { analytics_storage: 'granted' })
-    window.gtag('config', GA4_ID)
+    GA4_IDS.forEach((id) => window.gtag('config', id))
+  }
+  if (typeof window.fbq === 'function') {
+    window.fbq('consent', 'grant')
   }
   loadClarity()
 }
